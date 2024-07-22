@@ -23,7 +23,7 @@ jobs:
     - name: Run command on EC2 instance
       id: run-ssm-command
       run: |
-        instance_id="your-instance-id"
+        instance_id="i-0cc19beb035de8220"
         aws ssm send-command \
           --instance-ids "$instance_id" \
           --document-name "AWS-RunShellScript" \
