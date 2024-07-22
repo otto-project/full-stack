@@ -1,0 +1,13 @@
+[Unit]
+Description=Gunicorn service
+After=network.target
+
+[Service]
+User=ubuntu
+Group=www-data
+WorkingDirectory=/srv/full-stack/mysite
+ExecStart=/home/ubuntu/myvenv/bin/gunicorn --workers 3 --bind unix:/tmp/mysite.sock mysite.wsgi:application
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
