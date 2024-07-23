@@ -21,8 +21,6 @@ jobs:
     - name: Copy private key to Bastion Host
       run: |
         ssh -o StrictHostKeyChecking=no ubuntu@3.37.167.42 "rm -f ~/private-ec2-key.pem"
-      env:
-        SSH_AUTH_SOCK: ${{ steps.ssh-agent.outputs.ssh-agent-sock }}
     
     - name: SSH into EC2 instance via Bastion Host
       run: |
