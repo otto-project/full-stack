@@ -1,7 +1,7 @@
 name: Access EC2 via Bastion Host using SSH Agent Forwarding
 
 on:
-  push:
+  push: 
     branches:
       - main
 
