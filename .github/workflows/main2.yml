@@ -28,7 +28,11 @@ jobs:
       run: |
        ssh -o StrictHostKeyChecking=no -A ubuntu@3.37.167.42 \
           "ssh -i ~/private-ec2-key.pem -o StrictHostKeyChecking=no ubuntu@10.0.142.240 'echo Hello from GitHub Actions!'"
-          
+
+       ssh -o StrictHostKeyChecking=no -A ubuntu@3.37.167.42 \
+          "ssh -i ~/private-ec2-key.pem -o StrictHostKeyChecking=no ubuntu@10.0.142.240 'echo Helloooooooo000 from GitHub Actions!'"
+
+      
     - name: Clean up private key from Bastion Host 
       if: always()
       run: |
