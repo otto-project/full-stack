@@ -21,9 +21,10 @@ jobs:
     - name: Remove old private key from Bastion Host (if exists)
       run: |
         ssh -o StrictHostKeyChecking=no ubuntu@3.37.167.42 "rm -f ~/private-ec2-key.pem"
+
     - name: Copy private key to Bastion Host
       run: |
-        ssh -o StrictHostKeyChecking=no ubuntu@3.37.167.42
+        ssh -o StrictHostKeyChecking=no ubuntu@3.37.167.42 "rm -f ~/private-ec2-key.pem"
       env:
         SSH_AUTH_SOCK: ${{ steps.ssh-agent.outputs.ssh-agent-sock }}
     
