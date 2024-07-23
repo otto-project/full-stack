@@ -18,11 +18,17 @@ jobs:
       with:
         ssh-private-key: ${{ secrets.Bastion_Host }}
 
+    - name: Remove old private key from Bastion Host (if exists)
+      run: |
+        ssh -o StrictHostKeyChecking=no ubuntu@3.37.167.42 "rm -f ~/private-ec2-key.pem"
+
     - name: Copy private key to Bastion Host
       run: |
         echo "${{ secrets.PRIVATE_EC2_KEY }}" > private-ec2-key.pem
         scp -o StrictHostKeyChecking=no private-ec2-key.pem ubuntu@3.37.167.42:~/private-ec2-key.pem
         ssh -o StrictHostKeyChecking=no ubuntu@3.37.167.42 "chmod 400 ~/private-ec2-key.pem"
+      env:
+        SSH_AUTH_SOCK: ${{ steps.ssh-agent.outputs.ssh-agent-sock }}
     
     - name: SSH into EC2 instance via Bastion Host
       run: |
