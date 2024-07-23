@@ -16,7 +16,7 @@ jobs:
     - name: Set up SSH agent
       uses: webfactory/ssh-agent@v0.5.3
       with:
-        ssh-private-key: ${{ secrets.Bastion_Host }}
+        ssh-private-key: ${{ secrets.BASTION_HOST }}
 
     - name: Remove old private key from Bastion Host (if exists)
       run: |
