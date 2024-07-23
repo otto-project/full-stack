@@ -28,11 +28,30 @@ jobs:
       run: |
        ssh -o StrictHostKeyChecking=no -A ubuntu@3.37.167.42 \
           "ssh -i ~/private-ec2-key.pem -o StrictHostKeyChecking=no ubuntu@10.0.142.240 'echo Hello from GitHub Actions!'"
+
+       ssh -o StrictHostKeyChecking=no -A ubuntu@3.37.167.42 \
+          "ssh -i ~/private-ec2-key.pem -o StrictHostKeyChecking=no ubuntu@10.0.142.240 'pwd'"
+       
+       ssh -o StrictHostKeyChecking=no -A ubuntu@3.37.167.42 \
+          "ssh -i ~/private-ec2-key.pem -o StrictHostKeyChecking=no ubuntu@10.0.142.240 'ls'"
+
        ssh -o StrictHostKeyChecking=no -A ubuntu@3.37.167.42 \
           "ssh -i ~/private-ec2-key.pem -o StrictHostKeyChecking=no ubuntu@10.0.142.240 'cd full-stack'"
 
        ssh -o StrictHostKeyChecking=no -A ubuntu@3.37.167.42 \
-          "ssh -i ~/private-ec2-key.pem -o StrictHostKeyChecking=no ubuntu@10.0.142.240 'ls -a'"
+          "ssh -i ~/private-ec2-key.pem -o StrictHostKeyChecking=no ubuntu@10.0.142.240 'pwd'"
+
+       ssh -o StrictHostKeyChecking=no -A ubuntu@3.37.167.42 \
+          "ssh -i ~/private-ec2-key.pem -o StrictHostKeyChecking=no ubuntu@10.0.142.240 'ls'"
+
+       ssh -o StrictHostKeyChecking=no -A ubuntu@3.37.167.42 \
+          "ssh -i ~/private-ec2-key.pem -o StrictHostKeyChecking=no ubuntu@10.0.142.240 'cd full-stack'"
+
+       ssh -o StrictHostKeyChecking=no -A ubuntu@3.37.167.42 \
+          "ssh -i ~/private-ec2-key.pem -o StrictHostKeyChecking=no ubuntu@10.0.142.240 'pwd'"
+
+       ssh -o StrictHostKeyChecking=no -A ubuntu@3.37.167.42 \
+          "ssh -i ~/private-ec2-key.pem -o StrictHostKeyChecking=no ubuntu@10.0.142.240 'ls'"
 
 
        # ssh -o StrictHostKeyChecking=no -A ubuntu@3.37.167.42 \
