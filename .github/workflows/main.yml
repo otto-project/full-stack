@@ -37,7 +37,7 @@ jobs:
       env:
         SSH_AUTH_SOCK: ${{ steps.ssh-agent.outputs.ssh-agent-sock }}
 
-    - name: Clean up private key from Bastion Host 
-      if: always()
-      run: |
-        ssh -o StrictHostKeyChecking=no ubuntu@3.37.167.42 "rm -f ~/private-ec2-key.pem"
+    # - name: Clean up private key from Bastion Host 
+    #   if: always()
+    #   run: |
+    #     ssh -o StrictHostKeyChecking=no ubuntu@3.37.167.42 "rm -f ~/private-ec2-key.pem"
