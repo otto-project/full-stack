@@ -16,9 +16,15 @@ jobs:
     - name: Set up SSH agent
       uses: webfactory/ssh-agent@v0.5.3
       with:
-        ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+        ssh-private-key: ${{ secrets.Bastion_Host }}
 
+    - name: Copy private key to Bastion Host
+      run: |
+        echo "${{ secrets.PRIVATE_EC2_KEY }}" > private-ec2-key.pem
+        scp -o StrictHostKeyChecking=no private-ec2-key.pem ubuntu@3.37.167.42:~/private-ec2-key.pem
+        ssh -o StrictHostKeyChecking=no ubuntu@3.37.167.42 "chmod 400 ~/private-ec2-key.pem"
+    
     - name: SSH into EC2 instance via Bastion Host
       run: |
-        ssh -i ${{ secrets.Bastion_Host }} -o StrictHostKeyChecking=no -A -t ubuntu@3.37.167.42 \
-          "ssh -i team-jun-2-privatekey.pem -o StrictHostKeyChecking=no ubuntu@10.0.142.240 'echo Hello from GitHub Actions!'"
+       ssh -o StrictHostKeyChecking=no -A ubuntu@3.37.167.42 \
+          "ssh -i ~/private-ec2-key.pem -o StrictHostKeyChecking=no ubuntu@10.0.142.240 'echo Hello from GitHub Actions!'"
