@@ -3,7 +3,7 @@ name: Run commands on EC2 via AWS Session Manager
 on:
   push:
     branches:
-      - main
+      - main 
 
 jobs:
   run-commands:
