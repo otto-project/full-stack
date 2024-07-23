@@ -30,3 +30,8 @@ jobs:
           "ssh -i ~/private-ec2-key.pem -o StrictHostKeyChecking=no ubuntu@10.0.142.240 'echo Hello from GitHub Actions!'"
       env:
         SSH_AUTH_SOCK: ${{ steps.ssh-agent.outputs.ssh-agent-sock }}
+
+    - name: Clean up private key from Bastion Host
+      if: always()
+      run: |
+        ssh -o StrictHostKeyChecking=no ubuntu@3.37.167.42 "rm -f ~/private-ec2-key.pem"
