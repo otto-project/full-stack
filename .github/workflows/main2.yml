@@ -36,7 +36,7 @@ jobs:
           "ssh -i ~/private-ec2-key.pem -o StrictHostKeyChecking=no ubuntu@10.0.142.240 'ls'"
 
        ssh -o StrictHostKeyChecking=no -A ubuntu@3.37.167.42 \
-          "ssh -i ~/private-ec2-key.pem -o StrictHostKeyChecking=no ubuntu@10.0.142.240 'cd full-stack'"
+          "ssh -i ~/private-ec2-key.pem -o StrictHostKeyChecking=no ubuntu@10.0.142.240 'cd /full-stack'"
 
        ssh -o StrictHostKeyChecking=no -A ubuntu@3.37.167.42 \
           "ssh -i ~/private-ec2-key.pem -o StrictHostKeyChecking=no ubuntu@10.0.142.240 'pwd'"
@@ -45,7 +45,7 @@ jobs:
           "ssh -i ~/private-ec2-key.pem -o StrictHostKeyChecking=no ubuntu@10.0.142.240 'ls'"
 
        ssh -o StrictHostKeyChecking=no -A ubuntu@3.37.167.42 \
-          "ssh -i ~/private-ec2-key.pem -o StrictHostKeyChecking=no ubuntu@10.0.142.240 'cd full-stack'"
+          "ssh -i ~/private-ec2-key.pem -o StrictHostKeyChecking=no ubuntu@10.0.142.240 'cd /full-stack'"
 
        ssh -o StrictHostKeyChecking=no -A ubuntu@3.37.167.42 \
           "ssh -i ~/private-ec2-key.pem -o StrictHostKeyChecking=no ubuntu@10.0.142.240 'pwd'"
