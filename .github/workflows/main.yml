@@ -20,5 +20,5 @@ jobs:
 
     - name: SSH into EC2 instance via Bastion Host
       run: |
-        ssh -o StrictHostKeyChecking=no -A -t ubuntu@3.37.167.42 \
-          "ssh -i your-private-ec2-key.pem -o StrictHostKeyChecking=no ubuntu@10.0.142.240 'echo Hello from GitHub Actions!'"
+        ssh -i C:\Users\user\OneDrive\Desktop\.ssh\team-jun-2-publickey.pem -o StrictHostKeyChecking=no -A -t ubuntu@3.37.167.42 \
+          "ssh -i team-jun-2-privatekey.pem -o StrictHostKeyChecking=no ubuntu@10.0.142.240 'echo Hello from GitHub Actions!'"
