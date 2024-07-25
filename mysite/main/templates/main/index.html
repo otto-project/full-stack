@@ -1,3 +1,4 @@
+<!-- main/index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,5 +8,18 @@
 </head>
 <body>
     <h1>MAIN INDEX</h1>
+    {% if user.is_authenticated %}
+        <p>Welcome, {{ user.username }}!</p>
+        <p>성별: {{ user.gender }}</p>
+        <p>키: {{ user.height }}</p>
+        <p>몸무게: {{ user.weight }}</p>
+        <form method="post" action="{% url 'users:logout' %}">
+            {% csrf_token %}
+            <button type="submit">Logout</button>
+        </form>
+    {% else %}
+        <p>You are not logged in.</p>
+        <a href="{% url 'users:login' %}">Login</a>
+    {% endif %}
 </body>
 </html>
