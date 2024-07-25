@@ -13,8 +13,7 @@ def signup(request):
             print(form)
             user = form.save()
             # login(request, user)
-            return redirect('login')
-        print(form)
+            return redirect('main')
     else:
         form = SignUpForm()
     return render(request, 'users/signup.html', {'form': form})
