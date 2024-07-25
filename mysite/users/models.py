@@ -9,3 +9,4 @@ class CustomUser(AbstractUser):
     gender = models.CharField(max_length=6, choices=GENDER_CHOICES)
     height = models.PositiveIntegerField()
     weight = models.PositiveIntegerField()
+
