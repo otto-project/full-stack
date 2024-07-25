@@ -1,0 +1,38 @@
+
+name: Access EC2 via Bastion Host using SSH Agent Forwarding
+
+on:
+  push: 
+    branches:  
+      - develop  
+ 
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up SSH agent 
+      uses: webfactory/ssh-agent@v0.5.3
+      with:
+        ssh-private-key: ${{ secrets.BASTION_HOST }}
+        
+    - name: Copy private key to Bastion Host
+      run: |
+        echo "${{ secrets.PRIVATE_EC2_KEY }}" > private-ec2-key.pem
+        scp -o StrictHostKeyChecking=no private-ec2-key.pem ubuntu@3.37.167.42:~/private-ec2-key.pem
+        ssh -o StrictHostKeyChecking=no ubuntu@3.37.167.42 "chmod 400 ~/private-ec2-key.pem"
+    
+    - name: SSH into EC2 instance via Bastion Host
+      run: |
+       ssh -o StrictHostKeyChecking=no -A ubuntu@3.37.167.42 \
+          "ssh -i ~/private-ec2-key.pem -o StrictHostKeyChecking=no ubuntu@10.0.142.240 'echo Hello from GitHub Actions!;cd full-stack;git checkout develop;git pull origin develop'"
+       ssh -o StrictHostKeyChecking=no -A ubuntu@3.37.167.42 \
+          "ssh -i ~/private-ec2-key.pem -o StrictHostKeyChecking=no ubuntu@10.0.142.240 'touch /home/ubuntu/full-stack/mysite/reload.flag'"
+      
+    - name: Clean up private key from Bastion Host 
+      if: always()
+      run: |
+        ssh -o StrictHostKeyChecking=no ubuntu@3.37.167.42 "rm -f ~/private-ec2-key.pem"
