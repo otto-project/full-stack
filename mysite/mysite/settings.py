@@ -25,7 +25,7 @@ LOGIN_REDIRECT_URL = '/'
 SECRET_KEY = "django-insecure-yfx+2zuvu8f6#05$bij$*j35hc^2!8h6&kyk@*l7%hdt&#7r3h"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ["*"]
 AUTH_USER_MODEL = 'users.CustomUser'
@@ -120,7 +120,13 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 STATIC_URL = "/static/"
-STATICFILES_DIRS = [BASE_DIR / "static"]
+
+if DEBUG:
+    STATICFILES_DIRS = [BASE_DIR / "staticfiles"]
+    STATIC_ROOT = None
+else:
+    STATICFILES_DIRS = []
+    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # 배포 시 정적 파일이 모일 디렉토리
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
@@ -128,5 +134,5 @@ STATICFILES_DIRS = [BASE_DIR / "static"]
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 
-# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+# # STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
