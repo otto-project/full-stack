@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+{% csrf_token %}
 
 <head>
     <meta charset="utf-8">
@@ -28,7 +29,7 @@
                     <li><a href="#" id="men-link">MEN</a></li>
                 </ul>
             </div>
-            <button class="login-button">Login</button>
+            <button type="button" class="login-button" onclick="document.location.href='{% url 'users:login' %}'">Login</button>
         </div>
     </div>
 
