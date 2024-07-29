@@ -27,7 +27,7 @@ jobs:
     - name: SSH into EC2 instance via Bastion Host
       run: |
        ssh -o StrictHostKeyChecking=no -A ubuntu@${{ secrets.BASTION_HOST_IP }} \
-          "ssh -i ~/private-ec2-key.pem -o StrictHostKeyChecking=no ubuntu@${{secrets.DJANGO_IP}} 'echo Hello from GitHub Actions!;cd full-stack;git pull origin develop'"
+          "ssh -i ~/private-ec2-key.pem -o StrictHostKeyChecking=no ubuntu@${{secrets.DJANGO_IP}} 'echo Hello from GitHub Actions!;cd full-stack;git pull origin main'"
        ssh -o StrictHostKeyChecking=no -A ubuntu@${{ secrets.BASTION_HOST_IP }} \
           "ssh -i ~/private-ec2-key.pem -o StrictHostKeyChecking=no ubuntu@${{secrets.DJANGO_IP}} 'touch /home/ubuntu/full-stack/mysite/reload.flag'"
       
