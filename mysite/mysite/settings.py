@@ -125,7 +125,7 @@ if DEBUG:
     STATICFILES_DIRS = [BASE_DIR / "staticfiles"]
     STATIC_ROOT = None
 else:
-    STATICFILES_DIRS = []
+    STATICFILES_DIRS = [BASE_DIR / "staticfiles"]
     STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # 배포 시 정적 파일이 모일 디렉토리
 
 # Default primary key field type
