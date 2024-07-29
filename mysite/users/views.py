@@ -1,5 +1,4 @@
 from django.contrib import messages
-from django.contrib.auth import authenticate
 from django.contrib.auth import login
 from django.contrib.auth import views as auth_views
 from django.shortcuts import redirect
@@ -16,28 +15,13 @@ class CustomLoginView(auth_views.LoginView):
         return redirect('users:login')
 
 
-# Create your views here.
-def login(request):
-    if request.method == 'POST':
-        username = request.POST['username']
-        password = request.POST['password']
-        user = authenticate(request, username=username, password=password)
-        if user is not None:
-            login(request, user)
-            return redirect('main')  # 로그인 후 이동할 페이지
-        else:
-            messages.error(request, '사용자ID 또는 비밀번호가 잘못되었습니다.')
-
-    return render(request, 'users/login.html')
-
-
 def signup(request):
     if request.method == 'POST':
         form = SignUpForm(request.POST)
         if form.is_valid():
-            print(form)
             user = form.save()
-            # login(request, user)
+            login(request, user)
+            messages.success(request, '회원가입 성공!')
             return redirect('main')
     else:
         form = SignUpForm()
