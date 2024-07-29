@@ -28,9 +28,9 @@ jobs:
     - name: SSH into EC2 instance via Bastion Host
       run: |
        ssh -o StrictHostKeyChecking=no -A ubuntu@${{ secrets.BASTION_HOST_IP }} \
-          "ssh -i ~/private-ec2-key.pem -o StrictHostKeyChecking=no ubuntu@${{secrets.PRIVATE_EC2_IP}} 'echo Hello from GitHub Actions!;cd full-stack;git pull origin develop'"
+          "ssh -i ~/private-ec2-key.pem -o StrictHostKeyChecking=no ubuntu@${{secrets.DJANGO_DEV_IP}} 'echo Hello from GitHub Actions!;cd full-stack;git pull origin develop'"
        ssh -o StrictHostKeyChecking=no -A ubuntu@${{ secrets.BASTION_HOST_IP }} \
-          "ssh -i ~/private-ec2-key.pem -o StrictHostKeyChecking=no ubuntu@${{secrets.PRIVATE_EC2_IP}} 'touch /home/ubuntu/full-stack/mysite/reload.flag'"
+          "ssh -i ~/private-ec2-key.pem -o StrictHostKeyChecking=no ubuntu@${{secrets.DJANGO_DEV_IP}} 'touch /home/ubuntu/full-stack/mysite/reload.flag'"
       
     - name: Clean up private key from Bastion Host 
       if: always()
