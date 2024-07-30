@@ -2,14 +2,7 @@
 {% block content %}
 
 <div class="login-wrapper">
-    <h2>Login</h2>
-    {% if messages %}
-    <div class="alert alert-danger" role="alert">
-        {% for message in messages %}
-        {{ message }}
-        {% endfor %}
-    </div>
-    {% endif %}
+    <h2>로그인</h2>
     <form method="post" action="{% url 'users:login' %}" id="login-form">
         {% csrf_token %}
         <div class="mb-3">
@@ -22,7 +15,7 @@
         </div>
         <button type="submit" class="btn btn-primary">로그인</button>
     </form>
-    <div class="signup-wrapper">
+    <div class="signup-button-wrapper">
         <button type="button" class="signup-button" onclick="document.location.href='{% url 'users:signup' %}'">회원가입
         </button>
     </div>
