@@ -1,18 +1,62 @@
 {% extends "users/base.html" %}
+{% load custom_filters %}
 {% block content %}
-<!-- accounts/templates/accounts/register.html -->
 <!DOCTYPE html>
 <html>
 <head>
     <title>회원가입</title>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            {% if messages %}
+                {% for message in messages %}
+                    alert('{{ message }}');
+                {% endfor %}
+            {% endif %}
+        });
+    </script>
 </head>
 <body>
-    <h2>회원가입</h2>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">가입하기</button>
-    </form>
+    <div class="container my-3">
+        <h2>회원가입</h2>
+        <form method="post" class="form-group">
+            {% csrf_token %}
+            <div class="form-text-input">
+                <div class="form-div">
+                    <label for="{{ form.username.id_for_label }}" class="form-label">{{ form.username.label }}</label>
+                    {{ form.username|add_class:"form-username-textfield" }}
+                    {{ form.username.errors }}
+                </div>
+                <div class="form-div">
+                    <label for="{{ form.password1.id_for_label }}" class="form-label">{{ form.password1.label }}</label>
+                    {{ form.password1|add_class:"form-password1-textfield" }}
+                    {{ form.password1.errors }}
+                </div>
+                <div class="form-div">
+                    <label for="{{ form.password2.id_for_label }}" class="form-label">{{ form.password2.label }}</label>
+                    {{ form.password2|add_class:"form-password2-textfield" }}
+                    {{ form.password2.errors }}
+                </div>
+                <div class="form-div">
+                    <label for="{{ form.height.id_for_label }}" class="form-label">{{ form.height.label }}</label>
+                    {{ form.height|add_class:"form-height-textfield" }}
+                    {{ form.height.errors }}
+                </div>
+                <div class="form-div">
+                    <label for="{{ form.weight.id_for_label }}" class="form-label">{{ form.weight.label }}</label>
+                    {{ form.weight|add_class:"form-weight-textfield" }}
+                    {{ form.weight.errors }}
+                </div>
+            </div>
+            <div class="form-select-input">
+                <div class="form-div">
+                    <label for="{{ form.gender.id_for_label }}" class="form-label">{{ form.gender.label }}</label>
+                    {{ form.gender|add_class:"form-gender-select" }}
+                    {{ form.gender.errors }}
+                </div>
+            </div>
+            <button type="submit" class="form-button">가입하기</button>
+        </form>
+    </div>
 </body>
 </html>
 {% endblock %}
