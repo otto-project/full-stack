@@ -28,12 +28,16 @@ jobs:
     - name: Check if EC2 is running
       id: ec2_status
       run: |
-        if ssh -o StrictHostKeyChecking=no -A ubuntu@${{ secrets.BASTION_HOST_IP }} "ssh -i ~/private-ec2-key.pem -o StrictHostKeyChecking=no ubuntu@${{ secrets.DJANGO_DEV_IP }} 'exit'"; then
+        set +e
+        ssh -o StrictHostKeyChecking=no -o ConnectTimeout=10 -A ubuntu@${{ secrets.BASTION_HOST_IP }} \
+          "ssh -i ~/private-ec2-key.pem -o StrictHostKeyChecking=no -o ConnectTimeout=10 ubuntu@${{ secrets.DJANGO_DEV_IP }} 'exit'"
+        if [ $? -eq 0 ]; then
           echo "EC2 is running"
         else
           echo "EC2 is not running"
           exit 1
         fi
+        set -e
     
     - name: SSH into EC2 instance via Bastion Host
       if: steps.ec2_status.outcome == 'success'
