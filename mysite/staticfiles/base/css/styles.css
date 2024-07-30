@@ -19,7 +19,13 @@ body {
     align-items: center;
 }
 
-.hero h1 {
+.hero .container .home {
+    text-align: center;  
+    text-decoration: none; 
+    color: inherit;
+}
+
+.hero #english {
     font-family: "Playfair Display", serif;
     font-optical-sizing: auto;
     font-weight: 900;
@@ -28,7 +34,7 @@ body {
     margin: 0;
 }
 
-.hero h2 {
+.hero #korean {
     margin: 0 20px 0 28px;
     font-size: 1.28rem;
     font-weight: normal;
