@@ -16,45 +16,72 @@
     </script>
 </head>
 <body>
-    <div class="container my-3">
+    <div class="signup-wrapper">
         <h2>회원가입</h2>
         <form method="post" class="form-group">
             {% csrf_token %}
             <div class="form-text-input">
-                <div class="form-div">
-                    <label for="{{ form.username.id_for_label }}" class="form-label">{{ form.username.label }}</label>
-                    {{ form.username|add_class:"form-username-textfield" }}
-                    {{ form.username.errors }}
+                <div class="mb-3">
+                    <input type="text" class="form-control" name="username" id="id_username"
+                           value="{{ form.username.value|default_if_none:'' }}" placeholder="ID">
+                    {% if form.username.errors %}
+                        <div class="form-error">
+                            {{ form.username.errors }}
+                        </div>
+                    {% endif %}
                 </div>
-                <div class="form-div">
-                    <label for="{{ form.password1.id_for_label }}" class="form-label">{{ form.password1.label }}</label>
-                    {{ form.password1|add_class:"form-password1-textfield" }}
-                    {{ form.password1.errors }}
+                <div class="mb-3">
+                    <input type="password" class="form-control" name="password1" id="id-password1"
+                           value="{{ form.password1.value|default_if_none:'' }}" placeholder="비밀번호">
+                    {% if form.password1.errors %}
+                        <div class="form-error">
+                            {{ form.password1.errors }}
+                        </div>
+                    {% endif %}
                 </div>
-                <div class="form-div">
-                    <label for="{{ form.password2.id_for_label }}" class="form-label">{{ form.password2.label }}</label>
-                    {{ form.password2|add_class:"form-password2-textfield" }}
-                    {{ form.password2.errors }}
+                <div class="mb-3">
+                    <input type="password" class="form-control" name="password2" id="id-password2"
+                           value="{{ form.password2.value|default_if_none:'' }}" placeholder="비밀번호 확인">
+                    {% if form.password2.errors %}
+                        <div class="form-error">
+                            {{ form.password2.errors }}
+                        </div>
+                    {% endif %}
                 </div>
-                <div class="form-div">
-                    <label for="{{ form.height.id_for_label }}" class="form-label">{{ form.height.label }}</label>
-                    {{ form.height|add_class:"form-height-textfield" }}
-                    {{ form.height.errors }}
+                <div class="mb-3">
+                    <input type="text" class="form-control" name="height" id="id-height"
+                           value="{{ form.height.value|default_if_none:'' }}" placeholder="키">
+                    {% if form.height.errors %}
+                        <div class="form-error">
+                            {{ form.height.errors }}
+                        </div>
+                    {% endif %}
                 </div>
-                <div class="form-div">
-                    <label for="{{ form.weight.id_for_label }}" class="form-label">{{ form.weight.label }}</label>
-                    {{ form.weight|add_class:"form-weight-textfield" }}
-                    {{ form.weight.errors }}
+                <div class="mb-3">
+                    <input type="text" class="form-control" name="weight" id="id-weight"
+                           value="{{ form.weight.value|default_if_none:'' }}" placeholder="몸무게">
+                    {% if form.weight.errors %}
+                        <div class="form-error">
+                            {{ form.weight.errors }}
+                        </div>
+                    {% endif %}
                 </div>
             </div>
             <div class="form-select-input">
-                <div class="form-div">
-                    <label for="{{ form.gender.id_for_label }}" class="form-label">{{ form.gender.label }}</label>
-                    {{ form.gender|add_class:"form-gender-select" }}
-                    {{ form.gender.errors }}
+                <div class="mb-3">
+                    <select name="gender" id="id_gender" class="form-control form-gender-select">
+                        <option value="" disabled {% if not form.gender.value %}selected{% endif %}>성별 선택</option>
+                        <option value="male" {% if form.gender.value == 'male' %}selected{% endif %}>남</option>
+                        <option value="female" {% if form.gender.value == 'female' %}selected{% endif %}>여</option>
+                    </select>
+                    {% if form.gender.errors %}
+                        <div class="form-error">
+                            {{ form.gender.errors }}
+                        </div>
+                    {% endif %}
                 </div>
             </div>
-            <button type="submit" class="form-button">가입하기</button>
+                <button type="submit" class="signup-form-button-wrapper">가입하기</button>
         </form>
     </div>
 </body>
