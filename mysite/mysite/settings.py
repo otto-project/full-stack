@@ -36,16 +36,14 @@ INSTALLED_APPS = [
     "main",
     "users",
     "common",
+    "products",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    
-    
-    
-    
+
 ]
 
 MIDDLEWARE = [
@@ -105,11 +103,13 @@ DATABASES = {
         'NAME': 'postgres',
         'USER': 'ottodjango',
         'PASSWORD': 'otto!django',
-        'HOST': 'otto-django-dev-db.ch4xfyi6stod.ap-northeast-2.rds.amazonaws.com',
-        'PORT': '5432'
+        'HOST': '127.0.0.1',
+        'PORT': '5432',
+        'OPTIONS': {
+            'options': '-c search_path=public,otto'
+        },
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
@@ -152,9 +152,7 @@ else:
     STATICFILES_DIRS = [BASE_DIR / "staticfiles"]
     STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # 배포 시 정적 파일이 모일 디렉토리
 
-
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
-
