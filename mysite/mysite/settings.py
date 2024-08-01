@@ -42,10 +42,6 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    
-    
-    
-    
 ]
 
 MIDDLEWARE = [
@@ -100,13 +96,13 @@ WSGI_APPLICATION = "mysite.wsgi.application"
 # }
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'postgres',
-        'USER': 'ottodjango',
-        'PASSWORD': 'otto!django',
-        'HOST': 'otto-django-dev-db.ch4xfyi6stod.ap-northeast-2.rds.amazonaws.com',
-        'PORT': '5432'
+    "default": {
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": "postgres",
+        "USER": "ottodjango",
+        "PASSWORD": "otto!django",
+        "HOST": "127.0.0.1",
+        "PORT": "5432",
     }
 }
 
@@ -150,11 +146,12 @@ if DEBUG:
     STATIC_ROOT = None
 else:
     STATICFILES_DIRS = [BASE_DIR / "staticfiles"]
-    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # 배포 시 정적 파일이 모일 디렉토리
+    STATIC_ROOT = os.path.join(
+        BASE_DIR, "staticfiles"
+    )  # 배포 시 정적 파일이 모일 디렉토리
 
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
-
