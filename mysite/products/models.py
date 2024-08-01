@@ -5,6 +5,7 @@
 #   * Make sure each ForeignKey and OneToOneField has `on_delete` set to the desired behavior
 #   * Remove `managed = False` lines if you wish to allow Django to create, modify, and delete the table
 # Feel free to rename the models, but don't rename db_table values or field names.
+from django.conf import settings
 from django.db import models
 
 
@@ -21,5 +22,9 @@ class ProductTable(models.Model):
     platform = models.TextField(blank=True, null=True)
 
     class Meta:
-        managed = False
+        managed = not settings.TESTING  # 테스트 환경에서만 managed = True
         db_table = 'product_table'
+
+    @staticmethod
+    def get_product_order_by_rank(platform, category):
+        return ProductTable.objects.filter(platform=platform, category=category).order_by('rank')

@@ -82,19 +82,13 @@
         <div>
             <h3>상의</h3>
         </div>
-        <div>
-            <div class="scroll-container">
-                <img src="https://via.placeholder.com/150" alt="상의 이미지 1">
-                <img src="https://via.placeholder.com/150" alt="상의 이미지 2">
-                <img src="https://via.placeholder.com/150" alt="상의 이미지 3">
-                <img src="https://via.placeholder.com/150" alt="상의 이미지 4">
-                <img src="https://via.placeholder.com/150" alt="상의 이미지 5">
-                <img src="https://via.placeholder.com/150" alt="상의 이미지 6">
-                <img src="https://via.placeholder.com/150" alt="상의 이미지 7">
-                <img src="https://via.placeholder.com/150" alt="상의 이미지 8">
-                <img src="https://via.placeholder.com/150" alt="상의 이미지 9">
-            </div>
+    <div>
+        <div class="scroll-container">
+            {% for product in products %}
+                <img src="{{ product.image_url }}" alt="{{ product.product_name }}">
+            {% endfor %}
         </div>
+    </div>
         &ensp;
         <div>
             <h3>하의</h3>
