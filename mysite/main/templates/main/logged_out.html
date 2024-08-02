@@ -1,0 +1,5 @@
+{% extends "main/main.html" %}
+
+{% block user_info %}
+<button type="submit" class="login-button" onclick="document.location.href='{% url 'users:login' %}'">Login</button>
+{% endblock %}

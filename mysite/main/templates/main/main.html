@@ -32,16 +32,8 @@
                 </ul>
             </div>
             <div class="right-content">
-            {% if user.is_authenticated %}
-                <p class="username-welcome">{{ user.username }} 고객님, 환영합니다!</p>
-                {% comment %} <button type="button" class="login-button" onclick="document.location.href='{% url 'users:login' %}'">My Page</button> {% endcomment %}
-                <form method="post" action="{% url 'users:logout' %}">
-                    {% csrf_token %}
-                    <button type="submit" class="login-button">Logout</button>
-                </form>
-            {% else %}
-                <button type="submit" class="login-button" onclick="document.location.href='{% url 'users:login' %}'">Login</button>
-            {% endif %}
+                {% block user_info %}
+                {% endblock %}
             </div>
         </div>
     </div>
@@ -49,9 +41,9 @@
     <div class="sidebar">
         <h2>의류 사이트</h2>
         <ul>
-            <li><a href="{% url 'main_musinsa' %}" id="musinsa">무신사</a></li>
-            <li><a href="{% url 'main_29cm' %}" id="29cm">29cm</a></li>
-            <li><a href="{% url 'main_zigzag' %}" id="zigzag">zigzag</a></li>
+            <li><a href="{% url 'main_platform' 'musinsa' %}" id="musinsa">무신사</a></li>
+            <li><a href="{% url 'main_platform' '29cm' %}" id="29cm">29cm</a></li>
+            <li><a href="{% url 'main_platform' 'zigzag' %}" id="zigzag">zigzag</a></li>
         </ul>
     </div>
 
