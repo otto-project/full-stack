@@ -19,7 +19,7 @@
     <div class="hero">
         <div class="container">
             <div class="left-content">
-                <a href="" class="home">
+                <a href="/" class="home">
                     <div class="brand-logo">
                         <h1 id="english">OTTO</h1>
                         <h2 id="korean">옷, 또</h2>
@@ -49,9 +49,9 @@
     <div class="sidebar">
         <h2>의류 사이트</h2>
         <ul>
-            <li><a href="#" id="musinsa">무신사</a></li>
-            <li><a href="#" id="29cm">29cm</a></li>
-            <li><a href="#" id="zigzag">zigzag</a></li>
+            <li><a href="{% url 'main_musinsa' %}" id="musinsa">무신사</a></li>
+            <li><a href="{% url 'main_29cm' %}" id="29cm">29cm</a></li>
+            <li><a href="{% url 'main_zigzag' %}" id="zigzag">zigzag</a></li>
         </ul>
     </div>
 
@@ -66,8 +66,8 @@
                 <li>입력한 사이즈를 기반으로 추천된 의류 목록을 확인하고, 원하는 옷을 선택합니다.</li>
                 <li>추천된 의류를 통해 자신의 스타일을 완성하세요!</li>
             </ol>
-        </br>
-    </br>
+            </br>
+            </br>
             <div class="alert alert-danger" role="alert">
                 <strong>팁:</strong> 사이즈 입력 후에는 추천된 의류를 클릭하여 자세한 정보를 확인하고 구매할 수 있습니다.
             </div>
@@ -82,28 +82,22 @@
         <div>
             <h3>상의</h3>
         </div>
-    <div>
-        <div class="scroll-container">
-            {% for product in products %}
-                <img src="{{ product.image_url }}" alt="{{ product.product_name }}">
-            {% endfor %}
+        <div>
+            <div class="scroll-container">
+                {% for t in top %}
+                    <img src="{{ t.image_url }}" alt="{{ t.product_name }}">
+                {% endfor %}
+            </div>
         </div>
-    </div>
         &ensp;
         <div>
             <h3>하의</h3>
         </div>
         <div>
             <div class="scroll-container">
-                <img src="https://via.placeholder.com/150" alt="하의 이미지 1">
-                <img src="https://via.placeholder.com/150" alt="하의 이미지 2">
-                <img src="https://via.placeholder.com/150" alt="하의 이미지 3">
-                <img src="https://via.placeholder.com/150" alt="하의 이미지 4">
-                <img src="https://via.placeholder.com/150" alt="하의 이미지 5">
-                <img src="https://via.placeholder.com/150" alt="하의 이미지 6">
-                <img src="https://via.placeholder.com/150" alt="하의 이미지 7">
-                <img src="https://via.placeholder.com/150" alt="하의 이미지 8">
-                <img src="https://via.placeholder.com/150" alt="하의 이미지 9">
+                {% for b in bottom %}
+                    <img src="{{ b.image_url }}" alt="{{ b.product_name }}">
+                {% endfor %}
             </div>
         </div>
     </div>
