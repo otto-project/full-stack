@@ -1,4 +1,17 @@
 {% extends "main/main.html" %}
+{% load static %}
+
+{% block gender_select %}
+<li><a href="#" id="home-display">HOME</a></li>
+{% csrf_token %}
+{% if gender == 'female' %}
+<li><a href="#" id="women-link">WOMEN</a></li>
+<script src="{% static 'main/js/female.js' %}"></script>
+{% else %}
+<li><a href="#" id="men-link">MEN</a></li>
+<script src="{% static 'main/js/male.js' %}"></script>
+{% endif %}
+{% endblock %}
 
 {% block user_info %}
 <p class="username-welcome">{{ user.username }} 고객님, 환영합니다!</p>

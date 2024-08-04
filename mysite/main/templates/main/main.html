@@ -26,9 +26,8 @@
                 </div>
             </a>
             <ul>
-                <li><a href="#" id="home-display">HOME</a></li>
-                <li><a href="#" id="women-link">WOMEN</a></li>
-                <li><a href="#" id="men-link">MEN</a></li>
+                {% block gender_select %}
+                {% endblock %}
             </ul>
         </div>
         <div class="right-content">
@@ -104,15 +103,9 @@
     </div>
     <div>
         <div class="scroll-container">
-            <img src="https://via.placeholder.com/150" alt="상의 이미지 1">
-            <img src="https://via.placeholder.com/150" alt="상의 이미지 2">
-            <img src="https://via.placeholder.com/150" alt="상의 이미지 3">
-            <img src="https://via.placeholder.com/150" alt="상의 이미지 4">
-            <img src="https://via.placeholder.com/150" alt="상의 이미지 5">
-            <img src="https://via.placeholder.com/150" alt="상의 이미지 6">
-            <img src="https://via.placeholder.com/150" alt="상의 이미지 7">
-            <img src="https://via.placeholder.com/150" alt="상의 이미지 8">
-            <img src="https://via.placeholder.com/150" alt="상의 이미지 9">
+            {% for t in top %}
+            <img src="{{ t.image_url }}" alt="{{ t.product_name }}">
+            {% endfor %}
         </div>
     </div>
     &ensp;
@@ -121,20 +114,13 @@
     </div>
     <div>
         <div class="scroll-container">
-            <img src="https://via.placeholder.com/150" alt="하의 이미지 1">
-            <img src="https://via.placeholder.com/150" alt="하의 이미지 2">
-            <img src="https://via.placeholder.com/150" alt="하의 이미지 3">
-            <img src="https://via.placeholder.com/150" alt="하의 이미지 4">
-            <img src="https://via.placeholder.com/150" alt="하의 이미지 5">
-            <img src="https://via.placeholder.com/150" alt="하의 이미지 6">
-            <img src="https://via.placeholder.com/150" alt="하의 이미지 7">
-            <img src="https://via.placeholder.com/150" alt="하의 이미지 8">
-            <img src="https://via.placeholder.com/150" alt="하의 이미지 9">
+            {% for b in bottom %}
+            <img src="{{ b.image_url }}" alt="{{ b.product_name }}">
+            {% endfor %}
         </div>
     </div>
 </div>
 
-<script src="{% static 'main/js/scripts.js' %}"></script>
 </body>
 
 </html>
