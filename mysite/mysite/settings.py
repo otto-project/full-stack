@@ -103,7 +103,7 @@ DATABASES = {
         'NAME': 'postgres',
         'USER': 'ottodjango',
         'PASSWORD': 'otto!django',
-        'HOST': '127.0.0.1',
+        'HOST': 'otto-django-dev-db.ch4xfyi6stod.ap-northeast-2.rds.amazonaws.com',
         'PORT': '5432',
         'OPTIONS': {
             'options': '-c search_path=public,otto'
