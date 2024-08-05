@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 import os
+import sys
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -36,6 +37,7 @@ INSTALLED_APPS = [
     "main",
     "users",
     "common",
+    "products",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -96,16 +98,19 @@ WSGI_APPLICATION = "mysite.wsgi.application"
 # }
 
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": "postgres",
-        "USER": "ottodjango",
-        "PASSWORD": "otto!django",
-        "HOST": "127.0.0.1",
-        "PORT": "5432",
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'postgres',
+        'USER': 'ottodjango',
+        'PASSWORD': 'otto!django',
+        'HOST': '127.0.0.1',
+        'PORT': '5432',
+        'OPTIONS': {
+            'options': '-c search_path=public,otto'
+        },
     }
 }
-
+TESTING = 'test' in sys.argv[1:]  # 테스트 실행 시 TESTING을 True로 설정
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
@@ -149,7 +154,6 @@ else:
     STATIC_ROOT = os.path.join(
         BASE_DIR, "staticfiles"
     )  # 배포 시 정적 파일이 모일 디렉토리
-
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
