@@ -7,6 +7,7 @@
 # Feel free to rename the models, but don't rename db_table values or field names.
 from django.conf import settings
 from django.db import models
+from django.db.models import Subquery
 
 
 class ProductTable(models.Model):
@@ -28,3 +29,22 @@ class ProductTable(models.Model):
     @staticmethod
     def get_product_order_by_rank(platform, category):
         return ProductTable.objects.filter(platform=platform, category=category).order_by('rank')
+
+    @staticmethod
+    def get_product_filter_by_gender(platform, category, gender):
+        gender_product_names = ProductGender.objects.filter(gender=gender).values('product_name')
+        return ProductTable.objects.filter(
+            platform=platform,
+            category=category,
+            product_name__in=Subquery(gender_product_names)
+        )
+
+
+class ProductGender(models.Model):
+    id = models.AutoField(primary_key=True)
+    product_name = models.TextField(blank=True, null=True)
+    gender = models.TextField(blank=True, null=True)
+
+    class Meta:
+        managed = not settings.TESTING  # 테스트 환경에서만 managed = True
+        db_table = 'gender_table'
