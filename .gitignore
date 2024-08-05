@@ -2,7 +2,6 @@
 # Edit at https://www.toptal.com/developers/gitignore?templates=django
 
 ### comstom ###
-.config/
 *.settings.py
 
 ### Django ###
