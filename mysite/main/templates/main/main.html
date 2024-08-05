@@ -75,7 +75,10 @@
     <div>
         <div class="scroll-container">
             {% for t in top %}
-            <img src="{{ t.image_url }}" alt="{{ t.product_name }}">
+            <div class="product-container">
+                <img src="{{ t.image_url }}" alt="{{ t.product_name }}">
+                <p class="product-name">{{ t.product_name }}</p>
+            </div>
             {% endfor %}
         </div>
     </div>
@@ -86,7 +89,10 @@
     <div>
         <div class="scroll-container">
             {% for b in bottom %}
-            <img src="{{ b.image_url }}" alt="{{ b.product_name }}">
+            <div class="product-container">
+                <img src="{{ b.image_url }}" alt="{{ b.product_name }}">
+                <p class="product-name">{{ b.product_name }}</p>
+            </div>
             {% endfor %}
         </div>
     </div>
@@ -101,7 +107,10 @@
     <div>
         <div class="scroll-container">
             {% for t in top %}
-            <img src="{{ t.image_url }}" alt="{{ t.product_name }}">
+            <div class="product-container">
+                <img src="{{ t.image_url }}" alt="{{ t.product_name }}">
+                <p class="product-name">{{ t.product_name }}</p>
+            </div>
             {% endfor %}
         </div>
     </div>
@@ -112,7 +121,10 @@
     <div>
         <div class="scroll-container">
             {% for b in bottom %}
-            <img src="{{ b.image_url }}" alt="{{ b.product_name }}">
+            <div class="product-container">
+                <img src="{{ b.image_url }}" alt="{{ b.product_name }}">
+                <p class="product-name">{{ b.product_name }}</p>
+            </div>
             {% endfor %}
         </div>
     </div>
