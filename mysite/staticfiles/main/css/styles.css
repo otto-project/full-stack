@@ -209,3 +209,32 @@ body {
     width: 100%;
     box-sizing: border-box;
 }
+.scroll-container {
+    display: flex;
+    overflow-x: scroll;
+}
+
+.product-container {
+    margin: 10px;
+    text-align: center;
+    width: 150px; /* 이미지 크기에 맞추어 조절 */
+}
+
+.product-container img {
+    display: block;
+    margin: 0 auto;
+    transition: transform 0.2s;
+    width: 100%; /* 이미지 크기를 컨테이너에 맞추기 */
+}
+
+.product-container .product-name {
+    margin-top: 5px;
+    font-size: 14px;
+    color: #333;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+}

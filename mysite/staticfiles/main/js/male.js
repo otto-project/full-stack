@@ -9,7 +9,3 @@ document.getElementById("men-link").addEventListener("click", function() {
     document.getElementById("men-content").style.display = "flex";
     document.getElementById("men-link").style.textDecoration = "underline";
 });
-
-document.getElementsByClassName("brand-logo").addEventListener("click", function() {
-    location.replace("main");
-});
