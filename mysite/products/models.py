@@ -46,9 +46,5 @@ class ProductGender(models.Model):
     gender = models.TextField(blank=True, null=True)
 
     class Meta:
-<<<<<<< HEAD
-        managed = not settings.TESTING  # 테스트 환경에서만 managed = True
-=======
         managed = not settings.TESTING
->>>>>>> 0b3dae7 (Feat: 성별별로 제품을 필터링 적용)
         db_table = 'gender_table'
