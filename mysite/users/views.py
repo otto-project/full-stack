@@ -12,7 +12,7 @@ class CustomLoginView(auth_views.LoginView):
 
     def form_invalid(self, form):
         messages.error(self.request, "사용자ID 또는 비밀번호가 잘못되었습니다.")
-        return redirect("users:login")
+        return redirect('main_platform', platform='musinsa')
 
 
 def signup(request):
@@ -22,7 +22,7 @@ def signup(request):
             user = form.save()
             login(request, user)
             messages.success(request, "회원가입 성공!")
-            return redirect("main")
+            return redirect('main_platform', platform='musinsa')
     else:
         form = SignUpForm()
     return render(request, "users/signup.html", {"form": form})
