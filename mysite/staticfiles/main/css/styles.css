@@ -153,6 +153,10 @@ body {
     overflow-x: auto;
 }
 .product-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     position: relative;
     margin: 10px;
     text-align: center;
@@ -162,21 +166,10 @@ body {
     transition: transform 0.3s;
 }
 .product-container img {
-    display: block;
-    margin: 0 auto;
-    width: 100%;
+    width: 150px;
+    height: 250px; /* 고정 높이 설정 */
+    object-fit: cover; /* 이미지 비율을 유지하며 크기에 맞게 조정 */
     transition: transform 0.3s, box-shadow 0.3s;
-}
-.product-container p {
-    margin-top: 5px;
-    font-size: 14px;
-    color: #333;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: block;
-    width: 100%;
-    box-sizing: border-box;
 }
 .product-container .product-name {
     margin-top: 5px;
