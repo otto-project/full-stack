@@ -5,8 +5,17 @@ from django.contrib.auth import login
 from django.contrib.auth import views as auth_views
 from django.shortcuts import redirect
 from django.shortcuts import render
+from requests.exceptions import Timeout
 
 from .forms import SignUpForm
+
+
+def request_get(api_url, params):
+    try:
+        res = requests.get(api_url, params=params, timeout=10)
+        return res
+    except Timeout as e:
+        return None
 
 
 class CustomLoginView(auth_views.LoginView):
@@ -14,8 +23,15 @@ class CustomLoginView(auth_views.LoginView):
 
     def form_valid(self, form):
         host = settings.ML_API_HOST
-        api_url = f"http://{host}/predict?height=150&weight=10"
-        res = requests.get(api_url)
+        user = form.get_user()
+        height = user.height
+        weight = user.weight
+        api_url = f"http://{host}/predict"
+        params = {
+            'height': height,
+            'weight': weight
+        }
+        res = request_get(api_url, params)
         return super().form_valid(form)
 
     def form_invalid(self, form):
