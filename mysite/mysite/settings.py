@@ -28,7 +28,7 @@ LOGIN_REDIRECT_URL = "/"
 SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = config('DEBUG', default=False, cast=bool)
 
 ALLOWED_HOSTS = ["*"]
 AUTH_USER_MODEL = "users.CustomUser"
@@ -92,6 +92,8 @@ DATABASES = {
     }
 }
 TESTING = 'test' in sys.argv[1:]  # 테스트 실행 시 TESTING을 True로 설정
+
+ML_API_HOST = config('ML_API_HOST')
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
