@@ -12,7 +12,7 @@ class CustomLoginView(auth_views.LoginView):
 
     def form_invalid(self, form):
         messages.error(self.request, "사용자ID 또는 비밀번호가 잘못되었습니다.")
-        return redirect('main_platform', platform='musinsa')
+        return self.get(self.request)
 
 
 def signup(request):
