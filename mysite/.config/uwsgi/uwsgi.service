@@ -9,15 +9,7 @@ Restart=always
 KillSignal=SIGQUIT
 Type=notify
 StandardError=syslog
-<<<<<<< HEAD
-<<<<<<< HEAD
-NotifyAccess=all 
-=======
-NotifyAccess=all  
->>>>>>> 07ff8f84af9d82d180e9528ee308d9ea2f294b06
-=======
-NotifyAccess=all 
->>>>>>> 1605ef2239483b77d844d7c3b7a7acfe1c89b4f4
+NotifyAccess=all
 
 [Install]
 WantedBy=multi-user.target
