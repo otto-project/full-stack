@@ -1,0 +1,23 @@
+{% extends "users/base.html" %}
+{% block content %}
+
+<div class="login-wrapper">
+    <h2>로그인</h2>
+    <form method="post" action="{% url 'users:login' %}" id="login-form">
+        {% csrf_token %}
+        <div class="mb-3">
+            <input type="text" class="form-control" name="username" id="username"
+                   value="{{ request.POST.username|default_if_none:'' }}" placeholder="사용자ID">
+        </div>
+        <div class="mb-3">
+            <input type="password" class="form-control" name="password" id="password"
+                   value="{{ request.POST.password|default_if_none:'' }}" placeholder="비밀번호">
+        </div>
+        <button type="submit" class="btn btn-primary">로그인</button>
+    </form>
+    <div class="signup-button-wrapper">
+        <button type="button" class="signup-button" onclick="document.location.href='{% url 'users:signup' %}'">회원가입
+        </button>
+    </div>
+</div>
+{% endblock %}
