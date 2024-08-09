@@ -5,31 +5,26 @@
 body {
     overflow-y: scroll;
 }
-
 .hero {
     background-color: white;
     color: #343a40;
     padding: 20px 480px 15px 0px;
     border-bottom: 1px solid #343a40;
 }
-
 .hero .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-
 .hero .container .home {
     text-align: center;  
     text-decoration: none; 
     color: inherit;
 }
-
 .hero .left-content {
     display: flex;
     align-items: center;
 }
-
 .hero #english {
     font-family: "Playfair Display", serif;
     font-optical-sizing: auto;
@@ -38,14 +33,12 @@ body {
     text-shadow: 3px 3px 2.5px gray;
     margin: 0;
 }
-
 .hero #korean {
     margin: 0 20px 0 28px;
     font-size: 1.28rem;
     font-weight: normal;
     text-shadow: 5px 5px 2.5px gray;
 }
-
 .hero ul {
     list-style: none;
     font-size: 1.2rem;
@@ -54,28 +47,23 @@ body {
     margin: 60px 0 -10px 90px;
     display: flex;
 }
-
 .hero ul li {
     margin: 0 15px;
 }
-
 #women-link, #men-link {
     color: #343a40;
     text-decoration: none;
     cursor: pointer;
 }
-
 #women-link:hover, #men-link:hover {
     text-decoration: underline;
 }
-
 #home-display {
     color: #070707;
     text-decoration: none;
     padding: 10px 10px 6px;
     background-color: #e2e3e5;
 }
-
 .right-content button {
     background-color: #343a40;
     color: white;
@@ -85,21 +73,16 @@ body {
     text-transform: uppercase;
     cursor: pointer;
 }
-
 .right-content button:hover {
     background-color: #495057;
 }
-
 .right-content p {
     margin: 0 10px 0 1100px;
     font-size: 1.2rem;
 }
-
 .username-welcome {
     font-size: 2rem;
 }
-
-/* 사이드바 스타일 */
 .sidebar {
     position: fixed;
     top: 180px;
@@ -111,47 +94,37 @@ body {
     padding: 20px;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
 }
-
 .sidebar h2 {
     margin-top: 0;
     font-size: 1.6rem;
     font-weight: bold;
     color: #343a40;
 }
-
 .sidebar ul {
     list-style: none;
     padding: 0;
     margin: 30px 0;
 }
-
 .sidebar ul li {
     margin: 10px 0;
 }
-
 .sidebar ul li a {
     color: #343a40;
     text-decoration: none;
     font-size: 1.3rem;
 }
-
 .sidebar ul li a:hover {
     text-decoration: underline;
 }
-
-/* 콘텐츠 스타일 */
 .content h1 {
     font-size: 3.5rem;
 }
-
 .content h2 {
     font-size: 2rem;
 }
-
 .content h3 {
     font-size: 1.8rem;
 }
-
 #home {
     margin-left: 270px;
     padding: 20px;
@@ -159,19 +132,15 @@ body {
     flex-direction: column;
     gap: 20px;
 }
-
 #home #how-to-use {
     font-size: 1.5rem;
 }
-
 #home #benefit {
     font-size: 1.5rem;
 }
-
 .alert {
     font-size: 1.3rem;
 }
-
 #women-content, #men-content {
     margin-left: 270px;
     padding: 20px;
@@ -179,57 +148,29 @@ body {
     flex-direction: column;
     gap: 20px;
 }
-
 .scroll-container {
     display: flex;
     overflow-x: auto;
-    white-space: nowrap;
-    gap: 10px;
-    padding: 10px 0;
 }
 .product-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
     margin: 10px;
     text-align: center;
     width: 150px;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.3s;
 }
-<<<<<<< HEAD
 .product-container img {
-    display: block;
-    margin: 0 auto;
-    transition: transform 0.2s;
-    width: 100%;
+    width: 150px;
+    height: 250px; /* 고정 높이 설정 */
+    object-fit: cover; /* 이미지 비율을 유지하며 크기에 맞게 조정 */
+    transition: transform 0.3s, box-shadow 0.3s;
 }
-.product-container p {
-    margin-top: 5px;
-    font-size: 14px;
-    color: #333;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: block;
-    width: 100%;
-    box-sizing: border-box;
-}
-=======
->>>>>>> 0b3dae7 (Feat: 성별별로 제품을 필터링 적용)
-.scroll-container {
-    display: flex;
-    overflow-x: scroll;
-}
-
-.product-container {
-    margin: 10px;
-    text-align: center;
-    width: 150px; /* 이미지 크기에 맞추어 조절 */
-}
-
-.product-container img {
-    display: block;
-    margin: 0 auto;
-    transition: transform 0.2s;
-    width: 100%; /* 이미지 크기를 컨테이너에 맞추기 */
-}
-
 .product-container .product-name {
     margin-top: 5px;
     font-size: 14px;
@@ -240,4 +181,27 @@ body {
     display: block;
     width: 100%;
     box-sizing: border-box;
+}
+.product-container .product-size {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 10px;
+    opacity: 0;
+    transition: opacity 0.3s;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.product-container:hover img {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.product-container:hover .product-size {
+    opacity: 1;
+    transform: scale(1.05);
 }
