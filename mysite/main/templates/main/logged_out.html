@@ -1,0 +1,25 @@
+{% extends "main/main.html" %}
+{% load static %}
+
+{% block gender_select %}
+<li><a href="#" id="home-display">HOME</a></li>
+<li><a href="#" id="women-link">WOMEN</a></li>
+<li><a href="#" id="men-link">MEN</a></li>
+<script src="{% static 'main/js/scripts.js' %}"></script>
+{% endblock %}
+
+{% block user_info %}
+<button type="submit" class="login-button" onclick="document.location.href='{% url 'users:login' %}'">Login</button>
+{% endblock %}
+
+{% block women_product_h2_out %}
+<div>
+    <h2>평균 여성 키(162cm)와 몸무게(56kg)로 추천된 결과입니다.</h2>
+</div>
+{% endblock %}
+
+{% block men_product_h2_out %}
+<div>
+    <h2>평균 남성 키(174cm)와 몸무게(69kg)로 추천된 결과입니다.</h2>
+</div>
+{% endblock %}
