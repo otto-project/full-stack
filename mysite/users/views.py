@@ -16,6 +16,7 @@ class CustomLoginView(auth_views.LoginView):
         host = settings.ML_API_HOST
         api_url = f"http://{host}/predict?height=150&weight=10"
         res = requests.get(api_url)
+        return redirect('main_platform', platform='musinsa')
 
     def form_invalid(self, form):
         messages.error(self.request, "사용자ID 또는 비밀번호가 잘못되었습니다.")
