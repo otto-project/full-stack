@@ -5,6 +5,7 @@ from django.contrib.auth import login
 from django.contrib.auth import views as auth_views
 from django.shortcuts import redirect
 from django.shortcuts import render
+from products.models import ProductTable
 from requests.exceptions import Timeout
 
 from .forms import SignUpForm
@@ -18,20 +19,34 @@ def request_get(api_url, params):
         return None
 
 
+def load_ml_results(user):
+    host = settings.ML_API_HOST
+    api_url = f"http://{host}/predict"
+
+    params = {
+        "gender": user.gender,
+        "weight": user.weight,
+        "height": user.height
+    }
+    products = []
+    platforms = ['musinsa', '29cm', 'zigzag']
+    categories = ['top', 'bottom']
+    for platform in platforms:
+        for category in categories:
+            temp = ProductTable.get_product_order_by_rank(platform=platform, category=category)
+            products.extend(temp)
+
+    for product in products:
+        params['product_name'] = product.product_name
+        res = request_get(api_url, params)
+
+
 class CustomLoginView(auth_views.LoginView):
     template_name = "users/login.html"
 
     def form_valid(self, form):
-        host = settings.ML_API_HOST
         user = form.get_user()
-        height = user.height
-        weight = user.weight
-        api_url = f"http://{host}/predict"
-        params = {
-            'height': height,
-            'weight': weight
-        }
-        res = request_get(api_url, params)
+        load_ml_results(user)
         return super().form_valid(form)
 
     def form_invalid(self, form):
