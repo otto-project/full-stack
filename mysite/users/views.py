@@ -35,6 +35,9 @@ def load_ml_results(user):
     if not connection_test(connection_url):
         return
 
+    if not UserMLResult.needs_api_call(user):
+        return
+
     params = {
         "gender": user.gender,
         "weight": user.weight,
