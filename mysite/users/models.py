@@ -1,6 +1,7 @@
 from datetime import timedelta
 
 from django.contrib.auth.models import AbstractUser
+from django.db import IntegrityError
 from django.db import models
 from django.utils import timezone
 from products.models import ProductTable
@@ -28,12 +29,15 @@ class UserMLResult(models.Model):
 
     @staticmethod
     def create(user: CustomUser, product: ProductTable, size: str, score: float):
-        return UserMLResult.objects.create(
-            user=user,
-            product=product,
-            size=size,
-            score=score
-        )
+        try:
+            return UserMLResult.objects.create(
+                user=user,
+                product=product,
+                size=size,
+                score=score
+            )
+        except IntegrityError as e:
+            return None
 
     @staticmethod
     def needs_api_call(user):
