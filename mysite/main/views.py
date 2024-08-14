@@ -1,6 +1,18 @@
+from django.shortcuts import redirect
 from django.shortcuts import render
+from products.models import ProductTable
 
 
 # Create your views here.
 def index(request):
-    return render(request, "main/main.html")
+    return redirect('main_platform', platform='musinsa')
+
+
+def main_platform(request, platform='musinsa'):
+    top = ProductTable.get_product_order_by_rank(platform, 'top')[:10]
+    bottom = ProductTable.get_product_order_by_rank(platform, 'bottom')[:10]
+    if request.user.is_authenticated:
+        gender = request.user.gender
+        return render(request, 'main/logged_in.html', {'top': top, 'bottom': bottom, 'gender': gender})
+    else:
+        return render(request, 'main/logged_out.html', {'top': top, 'bottom': bottom})
