@@ -27,6 +27,15 @@ class UserMLResult(models.Model):
         unique_together = ('user', 'product')
 
     @staticmethod
+    def create(user: CustomUser, product: ProductTable, size: str, score: float):
+        return UserMLResult.objects.create(
+            user=user,
+            product=product,
+            size=size,
+            score=score
+        )
+
+    @staticmethod
     def needs_api_call(user):
         last_result = UserMLResult.objects.filter(user=user).order_by('-timestamp').first()
 

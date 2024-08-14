@@ -9,6 +9,7 @@ from products.models import ProductTable
 from requests.exceptions import Timeout
 
 from .forms import SignUpForm
+from .models import UserMLResult
 
 
 def request_get(api_url, params):
@@ -19,9 +20,20 @@ def request_get(api_url, params):
         return None
 
 
+def connection_test(api_url):
+    try:
+        requests.get(api_url, timeout=10)
+        return True
+    except Timeout as e:
+        return False
+
+
 def load_ml_results(user):
     host = settings.ML_API_HOST
     api_url = f"http://{host}/predict"
+    connection_url = f"http://{host}/connection"
+    if not connection_test(connection_url):
+        return
 
     params = {
         "gender": user.gender,
@@ -39,6 +51,17 @@ def load_ml_results(user):
     for product in products:
         params['product_name'] = product.product_name
         res = request_get(api_url, params)
+        size, score = process_prediction_result(res)
+        UserMLResult.create(user=user, product=product, size=size, score=score)
+
+
+def process_prediction_result(res):
+    if res is None:
+        return '-', 0
+    res = res.json()
+    if not res or not res['success']:
+        return '-', 0
+    return res['prediction'], res['prob']
 
 
 class CustomLoginView(auth_views.LoginView):
