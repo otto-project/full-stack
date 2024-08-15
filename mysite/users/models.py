@@ -54,3 +54,7 @@ class UserMLResult(models.Model):
             return True
 
         return False
+
+    @staticmethod
+    def get_ml_results(user):
+        pass
