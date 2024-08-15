@@ -49,12 +49,15 @@ def load_ml_results(user):
     products = []
     platforms = ['musinsa', '29cm', 'zigzag']
     categories = ['top', 'bottom']
+    connection_test(connection_url)
     for platform in platforms:
         for category in categories:
+            connection_test(connection_url)
             temp = ProductTable.get_product_filter_by_gender(platform=platform, category=category, gender=gender)
             products.extend(temp)
 
     for product in products:
+        connection_test(connection_url)
         params['product_name'] = product.product_name
         res = request_get(api_url, params)
         size, score = process_prediction_result(res)
