@@ -202,8 +202,7 @@ body {
     bottom: 0; /* Size는 아래쪽에 위치 */
 }
 .product-container .product-score {
-    top: 50%; /* Score는 이미지의 중앙에 위치 */
-    transform: translateY(-50%);
+    bottom: 10;
 }
 .product-container:hover img {
     transform: scale(1.05);
