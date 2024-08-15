@@ -21,9 +21,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 LOGIN_REDIRECT_URL = "/"
 
-SECURE_SSL_REDIRECT = True
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
