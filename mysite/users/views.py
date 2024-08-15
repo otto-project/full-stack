@@ -38,8 +38,9 @@ def load_ml_results(user):
     if not UserMLResult.needs_api_call(user):
         return
 
+    gender = '남성' if user.gender == 'male' else '여성'
     params = {
-        "gender": user.gender,
+        "gender": gender,
         "weight": user.weight,
         "height": user.height
     }
@@ -48,7 +49,7 @@ def load_ml_results(user):
     categories = ['top', 'bottom']
     for platform in platforms:
         for category in categories:
-            temp = ProductTable.get_product_order_by_rank(platform=platform, category=category)
+            temp = ProductTable.get_product_filter_by_gender(platform=platform, category=category, gender=gender)
             products.extend(temp)
 
     for product in products:
