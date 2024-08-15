@@ -1,6 +1,7 @@
 from django.shortcuts import redirect
 from django.shortcuts import render
 from products.models import ProductTable
+from users.models import UserMLResult
 
 
 def index(request):
