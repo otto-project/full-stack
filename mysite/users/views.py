@@ -26,6 +26,8 @@ def connection_test(api_url):
         return True
     except Timeout as e:
         return False
+    except ConnectionError as e:
+        return False
 
 
 def load_ml_results(user):
