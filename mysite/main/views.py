@@ -29,7 +29,7 @@ def main_platform(request, platform):
             top_with_results.append({
                 'product': product,
                 'size': result.size if result else product.size,
-                'score': result.score if result else None,
+                'score': convert_to_score(result.score) if result else None,
             })
 
         bottom_with_results = []
@@ -38,7 +38,7 @@ def main_platform(request, platform):
             bottom_with_results.append({
                 'product': product,
                 'size': result.size if result else product.size,
-                'score': result.score if result else None,
+                'score': convert_to_score(result.score) if result else None,
             })
 
         return render(request, 'main/logged_in.html', {
@@ -54,3 +54,13 @@ def main_platform(request, platform):
         return render(request, 'main/logged_out.html',
                       {'women_top': women_top, 'women_bottom': women_bottom, 'men_top': men_top,
                        'men_bottom': men_bottom})
+
+
+def convert_to_score(percentage):
+    # 0% ~ 100%의 수치를 50 ~ 100으로 변환
+    min_score = 50
+    max_score = 100
+
+    # 비율을 점수로 변환
+    score = min_score + (percentage * (max_score - min_score))
+    return round(score, 2)

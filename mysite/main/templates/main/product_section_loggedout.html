@@ -1,0 +1,11 @@
+<div>
+    <div class="scroll-container">
+        {% for item in product %}
+        <a class="product-container" href="{{ item.description }}">
+            <img src="{{ item.image_url }}" alt="{{ item.product_name }}">
+            <div class="product-name">{{ item.product_name }}</div>
+            <div class="product-size">{{ item.size }}</div>
+        </a>
+        {% endfor %}
+    </div>
+</div>

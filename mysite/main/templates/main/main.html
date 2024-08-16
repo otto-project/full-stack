@@ -44,7 +44,8 @@
 </div>
 
 <div class="content" id="home">
-    {% comment %} <div>
+    {% comment %}
+    <div>
         <h1>사이즈 기반 의류 추천 플랫폼, OTTO에 오신 것을 환영합니다!</h1>
         <br>
         <h2>사용 방법</h2>
@@ -59,11 +60,13 @@
         <div class="alert alert-danger" role="alert">
             <strong>팁:</strong> 사이즈 입력 후에는 추천된 의류를 클릭하여 자세한 정보를 확인하고 구매할 수 있습니다.
         </div>
-    </div> {% endcomment %}
+    </div>
+    {% endcomment %}
     <div class="slider-container">
         <div class="slider-wrapper">
             <div class="slide">
-                <img src="https://assets-global.website-files.com/60a3629e04f26d12caff56df/618dc361ac41ea01f35d31c5_%5B%EC%9D%B4%EB%AF%B8%EC%A7%80%201%5D%20%EB%AC%B4%EC%8B%A0%EC%82%AC%2C%20%EB%B8%8C%EB%9E%9C%EB%93%9C%20%EB%AE%A4%EC%A6%88%20%EC%A0%95%ED%98%B8%EC%97%B0%EC%9D%98%20FW%20%EB%AA%A8%EB%85%B8%ED%86%A4%20%ED%99%94%EB%B3%B4%20%EA%B3%B5%EA%B0%9C.jpg" alt="Image 1">
+                <img src="https://assets-global.website-files.com/60a3629e04f26d12caff56df/618dc361ac41ea01f35d31c5_%5B%EC%9D%B4%EB%AF%B8%EC%A7%80%201%5D%20%EB%AC%B4%EC%8B%A0%EC%82%AC%2C%20%EB%B8%8C%EB%9E%9C%EB%93%9C%20%EB%AE%A4%EC%A6%88%20%EC%A0%95%ED%98%B8%EC%97%B0%EC%9D%98%20FW%20%EB%AA%A8%EB%85%B8%ED%86%A4%20%ED%99%94%EB%B3%B4%20%EA%B3%B5%EA%B0%9C.jpg"
+                     alt="Image 1">
             </div>
             <div class="slide">
                 <img src="https://letter.wepick.kr/wp-content/uploads/2023/05/AXSLCz.webp" alt="Image 2">
@@ -81,13 +84,15 @@
                 <img src="https://miro.medium.com/v2/resize:fit:1400/1*Ky_3nRQHr5m3kMQkTduanQ.png" alt="Image 6">
             </div>
             <div class="slide">
-                <img src="https://dtd31o1ybbmk8.cloudfront.net/photos/d4b3328c6c7abd01585d9d0c4a044212/thumb.jpg" alt="Image 7">
+                <img src="https://dtd31o1ybbmk8.cloudfront.net/photos/d4b3328c6c7abd01585d9d0c4a044212/thumb.jpg"
+                     alt="Image 7">
             </div>
             <div class="slide">
                 <img src="https://storage.heypop.kr/assets/2022/08/24103858/1-7.jpg" alt="Image 8">
             </div>
             <div class="slide">
-                <img src="https://cdn.prod.website-files.com/60a3629e04f26d12caff56df/65e586ff8be4c3781d7b382f_%5B%EC%9D%B4%EB%AF%B8%EC%A7%80%5D%2029CM%20%EC%9A%B0%EB%A8%BC%ED%8C%A8%EC%85%98%EB%B7%B0.jpg" alt="Image 9">
+                <img src="https://cdn.prod.website-files.com/60a3629e04f26d12caff56df/65e586ff8be4c3781d7b382f_%5B%EC%9D%B4%EB%AF%B8%EC%A7%80%5D%2029CM%20%EC%9A%B0%EB%A8%BC%ED%8C%A8%EC%85%98%EB%B7%B0.jpg"
+                     alt="Image 9">
             </div>
         </div>
         <button class="prev-slide">‹</button>
@@ -135,12 +140,12 @@
     <div>
         <h3>상의</h3>
     </div>
-    {% include "main/product_section.html" with product=women_top %}
+    {% include "main/product_section_loggedout.html" with product=women_top %}
     &ensp;
     <div>
         <h3>하의</h3>
     </div>
-    {% include "main/product_section.html" with product=women_bottom %}
+    {% include "main/product_section_loggedout.html" with product=women_bottom %}
 </div>
 <div class="content" id="men-content">
     {% block men_product_h2_out %}
@@ -149,12 +154,12 @@
     <div>
         <h3>상의</h3>
     </div>
-    {% include "main/product_section.html" with product=men_top %}
+    {% include "main/product_section_loggedout.html" with product=men_top %}
     &ensp;
     <div>
         <h3>하의</h3>
     </div>
-    {% include "main/product_section.html" with product=men_bottom %}
+    {% include "main/product_section_loggedout.html" with product=men_bottom %}
 </div>
 {% endif %}
 <script src="{% static 'main/js/platform_sidebar.js' %}"></script>
