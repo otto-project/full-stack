@@ -67,17 +67,19 @@ body {
 .right-content {
     border: none;
     margin: 20px 0px 0px 0px;
-    padding: 8px 15px;
-    font-size: 0.8rem;
     margin-left: auto;
 }
 .right-content button {
     background-color: #343a40;
     color: white;
+    padding: 8px 15px;
+    margin-left: 20px;
+    font-size: 0.8rem;
     text-transform: uppercase;  
     cursor: pointer;
 }
 .right-content button:hover {
+    font-size: 0.8rem;
     background-color: #495057;
 }
 
