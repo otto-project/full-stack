@@ -40,7 +40,7 @@ body {
     font-size: 1rem;
     font-weight: bold;
     padding: 0;
-    margin: 65px 0px 0px 50px;
+    margin: 80px 0px 0px 50px;
     display: flex;
     gap: 15px; /* 항목 간격 */
 }
@@ -52,7 +52,7 @@ body {
 #women-link, #men-link {
     color: #343a40;
     text-decoration: none;
-    cursor: pointer;
+    cursor: pointer;    
 }
 #women-link:hover, #men-link:hover {
     text-decoration: underline;
