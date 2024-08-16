@@ -1,25 +1,26 @@
-document.getElementById("musinsa").addEventListener("click", function() {
+document.addEventListener("DOMContentLoaded", function() {
     toggleContent();
-    document.getElementById("home").style.display = "none";
-    document.getElementById("musinsa").style.textDecoration = "underline";
-    document.getElementById("29cm").style.textDecoration = "none";
-    document.getElementById("zigzag").style.textDecoration = "none";
+    document.getElementById("musinsa").addEventListener("click", function() {
+        document.getElementById("musinsa").style.textDecoration = "underline";
+        document.getElementById("29cm").style.textDecoration = "none";
+        document.getElementById("zigzag").style.textDecoration = "none";
+    });
 });
-
-document.getElementById("29cm").addEventListener("click", function() {
+document.addEventListener("DOMContentLoaded", function() {
     toggleContent();
-    document.getElementById("home").style.display = "none";
-    document.getElementById("musinsa").style.textDecoration = "none";
-    document.getElementById("29cm").style.textDecoration = "underline";
-    document.getElementById("zigzag").style.textDecoration = "none";
+    document.getElementById("29cm").addEventListener("click", function() {
+        document.getElementById("musinsa").style.textDecoration = "none";
+        document.getElementById("29cm").style.textDecoration = "underline";
+        document.getElementById("zigzag").style.textDecoration = "none";
+    });
 });
-
-document.getElementById("zigzag").addEventListener("click", function() {
+document.addEventListener("DOMContentLoaded", function() {
     toggleContent();
-    document.getElementById("home").style.display = "none";
-    document.getElementById("musinsa").style.textDecoration = "none";
-    document.getElementById("29cm").style.textDecoration = "none";
-    document.getElementById("zigzag").style.textDecoration = "underline";
+    document.getElementById("zigzag").addEventListener("click", function() {
+        document.getElementById("musinsa").style.textDecoration = "none";
+        document.getElementById("29cm").style.textDecoration = "none";
+        document.getElementById("zigzag").style.textDecoration = "underline";
+    });
 });
 
 function toggleContent() {
@@ -27,8 +28,10 @@ function toggleContent() {
     var menContent = document.getElementById("men-content");
 
     if (womenContent) {  // women-content가 존재할 경우
+        document.getElementById("home").style.display = "none";
         womenContent.style.display = "flex";
     } else if (menContent) {  // men-content가 존재할 경우
+        document.getElementById("home").style.display = "none";
         menContent.style.display = "flex";
     }
 }
