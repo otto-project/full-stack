@@ -64,12 +64,19 @@ body {
     padding: 10px 10px 6px;
     background-color: #e2e3e5;
 }
-.username-welcome, .right-content button {
+.username-welcome {
+    border: none;
+    margin-top: 10px;
+    margin-left: calc(100% - 200px);
+    padding: 8px 15px;
+    font-size: 0.8rem;
+}
+.right-content button {
     background-color: #343a40;
     color: rgb(215, 88, 88);
     border: none;
     margin-top: 20px;
-    margin-left: 1000px;
+    margin-left: calc(100% - 200px);
     padding: 8px 15px;
     text-transform: uppercase;  
     cursor: pointer;
