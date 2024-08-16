@@ -1,5 +1,4 @@
 const slide = document.querySelector('.slider-wrapper');
-let slideWidth = slide.clientWidth;
 
 const prevButton = document.querySelector('.prev-slide');
 const nextButton = document.querySelector('.next-slide');
@@ -54,9 +53,9 @@ for (let i = 0; i < maxSlide; i++) {
 }
 
 // 브라우저 화면이 조정될 때 마다 slideWidth를 변경하기 위해
-window.addEventListener("resize", () => {
-    slideWidth = slide.clientWidth;
-});
+// window.addEventListener("resize", () => {
+//     slideWidth = slide.clientWidth;
+// });
 
 function moveToNextSlide() {
     currSlide += 1;
