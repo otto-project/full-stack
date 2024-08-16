@@ -3,7 +3,6 @@
 
 {% block gender_select %}
 <li><a href="#" id="home-display">HOME</a></li>
-<script src="{% static 'main/js/banner.js' %}"></script>
 {% csrf_token %}
 {% if gender == 'female' %}
 <li><a href="#" id="women-link">WOMEN</a></li>
