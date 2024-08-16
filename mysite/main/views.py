@@ -63,4 +63,4 @@ def convert_to_score(percentage):
 
     # 비율을 점수로 변환
     score = min_score + (percentage * (max_score - min_score))
-    return score
+    return round(score, 2)
