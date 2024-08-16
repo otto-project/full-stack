@@ -50,6 +50,7 @@ body {
     text-decoration: none;
     cursor: pointer;    
 }
+
 #women-link:hover, #men-link:hover {
     text-decoration: underline;
 }
@@ -119,15 +120,15 @@ body {
 }
 
 .content h1 {
-    font-size: 3.5rem;
+    font-size: 1rem;
 }
 
 .content h2 {
-    font-size: 2rem;
+    font-size: 1rem;
 }
 
 .content h3 {
-    font-size: 1.8rem;
+    font-size: 1rem;
 }
 
 #home {
