@@ -49,18 +49,22 @@ body {
     margin: 0;
 }
 
-.hero ul li a {
+#women-link, #men-link {
     color: #343a40;
     text-decoration: none;
     cursor: pointer;
 }
-
-.hero ul li a:hover {
+#women-link:hover, #men-link:hover {
     text-decoration: underline;
 }
 
-/* 버튼 스타일 */
-.login-button {
+#home-display {
+    color: #070707;
+    text-decoration: none;
+    padding: 10px 10px 6px;
+    background-color: #e2e3e5;
+}
+.right-content button {
     background-color: #343a40;
     color: white;
     border: none;
@@ -68,12 +72,17 @@ body {
     padding: 8px 15px;
     text-transform: uppercase;  
     cursor: pointer;
-    font-size: 0.8rem;
-    margin-left: auto; /* 버튼을 오른쪽 끝으로 밀기 */
+    margin-left: auto; 
 }
-
-.login-button   :hover {
+.right-content button:hover {
     background-color: #495057;
+}
+.right-content p {
+    margin: 0 10px 0 1100px;
+    font-size: 0.8rem;
+}
+.username-welcome {
+    font-size: 2rem;
 }
 
 /* 사이드바 스타일 */
@@ -151,6 +160,71 @@ body {
     display: none;
     flex-direction: column;
     gap: 20px;
+}
+
+.scroll-container {
+    display: flex;
+    overflow-x: auto;
+}
+.product-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin: 10px;
+    text-align: center;
+    width: 150px;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.3s;
+}
+.product-container img {
+    width: 150px;
+    height: 250px; /* 고정 높이 설정 */
+    object-fit: cover; /* 이미지 비율을 유지하며 크기에 맞게 조정 */
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.product-container .product-name {
+    margin-top: 5px;
+    font-size: 14px;
+    color: #333;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.product-container .product-size,
+.product-container .product-score {
+    position: absolute;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 5px 0;
+    opacity: 0;
+    transition: opacity 0.3s;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.product-container .product-size {
+    bottom: 0; /* Size는 아래쪽에 위치 */
+}
+.product-container .product-score {
+    bottom: 10;
+}
+.product-container:hover img {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.product-container:hover .product-size,
+.product-container:hover .product-score {
+    opacity: 1; /* 마우스 오버 시 나타나도록 설정 */
 }
 
 /* 슬라이더 컨테이너 스타일 */
