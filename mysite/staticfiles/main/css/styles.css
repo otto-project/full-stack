@@ -66,8 +66,7 @@ body {
 }
 .username-welcome {
     border: none;
-    margin-top: 10px;
-    margin-left: calc(500%);
+    margin-top: 10px 20px 10px calc(480%);
     padding: 8px 15px;
     font-size: 0.8rem;
 }
@@ -76,7 +75,7 @@ body {
     color: white;
     border: none;
     margin-top: 20px;
-    margin-left: calc(500%);
+    margin-left: calc(450%);
     padding: 8px 15px;
     text-transform: uppercase;  
     cursor: pointer;
