@@ -23,7 +23,7 @@ body {
     color: #343a40;
     padding: 0;
     border-bottom: 1px solid #343a40;
-    align-items: center;
+    justify-content: center;
 }
 
 .login-wrapper{
