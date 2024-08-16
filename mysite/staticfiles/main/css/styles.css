@@ -76,7 +76,7 @@ body {
     color: white;
     border: none;
     margin-top: 20px;
-    margin-left: calc(100% - 200px);
+    margin-left: calc(100% - 20px);
     padding: 8px 15px;
     text-transform: uppercase;  
     cursor: pointer;
