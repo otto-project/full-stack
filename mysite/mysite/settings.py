@@ -25,10 +25,10 @@ LOGIN_REDIRECT_URL = "/"
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = config('SECRET_KEY')
+SECRET_KEY = config("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config('DEBUG', default=False, cast=bool)
+DEBUG = config("DEBUG", default=False, cast=bool)
 
 ALLOWED_HOSTS = ["*"]
 AUTH_USER_MODEL = "users.CustomUser"
@@ -79,31 +79,21 @@ TEMPLATES = [
 WSGI_APPLICATION = "mysite.wsgi.application"
 
 DATABASES = {
-<<<<<<< HEAD
     "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": "postgres",
-        "USER": "ottodjango",
-        "PASSWORD": "otto!django",
-        "HOST": "otto-django-dev-db.ch4xfyi6stod.ap-northeast-2.rds.amazonaws.com",
-        "PORT": "5432",
-=======
-    'default': {
-        'ENGINE': config('DB_ENGINE'),
-        'NAME': config('DB_NAME'),
-        'USER': config('DB_USER'),
-        'PASSWORD': config('DB_PASSWORD'),
-        'HOST': config('DB_HOST'),
-        'PORT': config('DB_PORT'),
-        'OPTIONS': {
-            'options': config('DB_OPTIONS'),
+        "ENGINE": config("DB_ENGINE"),
+        "NAME": config("DB_NAME"),
+        "USER": config("DB_USER"),
+        "PASSWORD": config("DB_PASSWORD"),
+        "HOST": config("DB_HOST"),
+        "PORT": config("DB_PORT"),
+        "OPTIONS": {
+            "options": config("DB_OPTIONS"),
         },
->>>>>>> 8d4129160f0b2a6940d94cbb8e8a57bd27c2074b
     }
 }
 TESTING = "test" in sys.argv[1:]  # 테스트 실행 시 TESTING을 True로 설정
 
-ML_API_HOST = config('ML_API_HOST')
+ML_API_HOST = config("ML_API_HOST")
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
