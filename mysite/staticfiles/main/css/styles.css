@@ -1,146 +1,150 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Dongle:wght@300&display=swap');
 
-/* 스타일 */
+/* 전체 페이지 스타일 */
 body {
     overflow-y: scroll;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    box-sizing: border-box;
 }
+
+/* 로고 스타일 */
+.logo {
+    width: 170px; /* 로고 크기 조정 */
+    height: auto; /* 원본 비율 유지 */
+    max-height: 178px;
+    padding: 15px 15px 15px 40px;
+}
+
+/* Hero 섹션 스타일 */
 .hero {
     background-color: white;
     color: #343a40;
-    padding: 20px 480px 15px 0px;
+    padding: 0px 30px 0px 0px;
     border-bottom: 1px solid #343a40;
-}
-.hero .container {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    align-items: center; /* 로고와 UL을 수직 가운데 정렬 */
+    gap: 40px; /* 로고와 UL 사이의 간격 */
 }
-.hero .container .home {
-    text-align: center;  
-    text-decoration: none; 
-    color: inherit;
-}
+
 .hero .left-content {
     display: flex;
     align-items: center;
 }
-.hero #english {
-    font-family: "Playfair Display", serif;
-    font-optical-sizing: auto;
-    font-weight: 900;
-    font-style: normal;
-    text-shadow: 3px 3px 2.5px gray;
-    margin: 0;
-}
-.hero #korean {
-    margin: 0 20px 0 28px;
-    font-size: 1.28rem;
-    font-weight: normal;
-    text-shadow: 5px 5px 2.5px gray;
-}
+
+/* UL 위치 조정 */
 .hero ul {
     list-style: none;
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight: bold;
     padding: 0;
-    margin: 60px 0 -10px 90px;
+    margin: 65px 0px 0px 50px;
     display: flex;
+    gap: 15px; /* 항목 간격 */
 }
+
 .hero ul li {
-    margin: 0 15px;
+    margin: 0;
 }
-#women-link, #men-link {
+
+.hero ul li a {
     color: #343a40;
     text-decoration: none;
     cursor: pointer;
 }
-#women-link:hover, #men-link:hover {
+
+.hero ul li a:hover {
     text-decoration: underline;
 }
-#home-display {
-    color: #070707;
-    text-decoration: none;
-    padding: 10px 10px 6px;
-    background-color: #e2e3e5;
-}
-.right-content button {
+
+/* 버튼 스타일 */
+.login-button {
     background-color: #343a40;
     color: white;
     border: none;
-    padding: 10px 20px;
-    margin: 0 0 0 1200px;
-    text-transform: uppercase;
+    margin: 20px 0px 0px 0px;
+    padding: 8px 15px;
+    text-transform: uppercase;  
     cursor: pointer;
+    font-size: 0.8rem;
+    margin-left: auto; /* 버튼을 오른쪽 끝으로 밀기 */
 }
-.right-content button:hover {
+
+.login-button   :hover {
     background-color: #495057;
 }
-.right-content p {
-    margin: 0 10px 0 1100px;
-    font-size: 1.2rem;
-}
-.username-welcome {
-    font-size: 2rem;
-}
+
+/* 사이드바 스타일 */
 .sidebar {
     position: fixed;
-    top: 180px;
+    top: 121px;
     left: 0;
-    height: 30%;
-    width: 250px;
+    height: auto; /* 높이를 자동으로 설정 */
+    width: 200px;
     background-color: #e2e3e5;
     border-right: 2px solid #f7f8f9;
     padding: 20px;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
 }
+
 .sidebar h2 {
     margin-top: 0;
-    font-size: 1.6rem;
+    font-size: 1.2rem;
     font-weight: bold;
     color: #343a40;
 }
+
 .sidebar ul {
     list-style: none;
     padding: 0;
     margin: 30px 0;
 }
+
 .sidebar ul li {
     margin: 10px 0;
 }
+
 .sidebar ul li a {
     color: #343a40;
     text-decoration: none;
-    font-size: 1.3rem;
+    font-size: 1rem;
 }
+
 .sidebar ul li a:hover {
     text-decoration: underline;
 }
+
+/* 콘텐츠 스타일 */
 .content h1 {
     font-size: 3.5rem;
 }
+
 .content h2 {
     font-size: 2rem;
 }
+
 .content h3 {
     font-size: 1.8rem;
 }
+
 #home {
-    margin-left: 270px;
+    margin-left: 200px;
     padding: 20px;
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
-#home #how-to-use {
+
+#home #how-to-use, #home #benefit {
     font-size: 1.5rem;
 }
-#home #benefit {
-    font-size: 1.5rem;
-}
+
 .alert {
     font-size: 1.3rem;
 }
+
 #women-content, #men-content {
     margin-left: 270px;
     padding: 20px;
@@ -148,77 +152,17 @@ body {
     flex-direction: column;
     gap: 20px;
 }
-.scroll-container {
-    display: flex;
-    overflow-x: auto;
-}
-.product-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    margin: 10px;
-    text-align: center;
-    width: 150px;
-    text-decoration: none;
-    color: inherit;
-    transition: transform 0.3s;
-}
-.product-container img {
-    width: 150px;
-    height: 250px; /* 고정 높이 설정 */
-    object-fit: cover; /* 이미지 비율을 유지하며 크기에 맞게 조정 */
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-.product-container .product-name {
-    margin-top: 5px;
-    font-size: 14px;
-    color: #333;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: block;
-    width: 100%;
-    box-sizing: border-box;
-}
 
-.product-container .product-size,
-.product-container .product-score {
-    position: absolute;
-    left: 0;
-    right: 0;
-    background: rgba(0, 0, 0, 0.7);
-    color: white;
-    padding: 5px 0;
-    opacity: 0;
-    transition: opacity 0.3s;
-    font-size: 14px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.product-container .product-size {
-    bottom: 0; /* Size는 아래쪽에 위치 */
-}
-.product-container .product-score {
-    bottom: 10;
-}
-.product-container:hover img {
-    transform: scale(1.05);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-.product-container:hover .product-size,
-.product-container:hover .product-score {
-    opacity: 1; /* 마우스 오버 시 나타나도록 설정 */
-}
+/* 슬라이더 컨테이너 스타일 */
 .slider-container {
     position: relative;
-    width: 85%;
-    max-width: 85%;
-    margin: auto; 
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    max-height: 500px;
+    margin: 0px 0px 0px 0px;
     overflow: hidden;
-    border-radius: 10px; 
+    border-radius: 10px;
 }
 
 .slider-wrapper {
@@ -232,23 +176,24 @@ body {
 }
 
 .slide img {
-    width: fit-content;
+    width: auto;
+    height: 60%;
     margin: auto;
-    height: 700px;
-    object-fit: cover; /* 이미지가 슬라이드에 맞게 잘리도록 설정 */
+    object-fit: contain; /* 이미지가 슬라이드에 맞게 잘리도록 설정 */
     display: block;
 }
 
+/* 슬라이드 버튼 스타일 */
 .prev-slide, .next-slide {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.2);
-    color: white;
+    background-color: inherit;
+    font-size: 80px;
+    color: gray;
     border: none;
     padding: 10px;
     cursor: pointer;
-    border-radius: 0%;
 }
 
 .prev-slide {
@@ -259,33 +204,28 @@ body {
     right: 10px;
 }
 
-/* 페이지네이션 스타일 */
 ul,
 li {
     list-style-type: none;
     padding: 0;
     margin: 0;
 }
+
 .slide_pagination {
-    /* layout */
     display: flex;
     gap: 5px;
-
-    /* position */
     position: absolute;
     bottom: 0;
-    /* left:50%, translateX(-50%)를 하면 가로 가운데로 위치시킬 수 있다. */
     left: 50%;
     transform: translateX(-50%);
 }
+
 .slide_pagination > li {
-    /* 현재 슬라이드가 아닌 것은 투명도 부여 */
-    color: #7fb5ff88;
+    color: hwb(319 48% 10% / 0.533);
     cursor: pointer;
     font-size: 25px;
 }
-.slide_pagination > li.active {
-    /* 현재 슬라이드 색상은 투명도 없이 */
-    color: #7fb5ff;
-}
 
+.slide_pagination > li.active {
+    color: hwb(295 24% 7%);
+}

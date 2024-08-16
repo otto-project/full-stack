@@ -17,23 +17,20 @@
 
 <body>
 <div class="hero">
-    <div class="container">
-        <div class="left-content">
+    <div class="left-content">
+        <header>
             <a href="/" class="home">
-                <div class="brand-logo">
-                    <h1 id="english">OTTO</h1>
-                    <h2 id="korean">옷, 또</h2>
-                </div>
+                <img src="{% static 'main/images/otto_logo1.png' %}" alt="OTTO Logo" class="logo">
             </a>
-            <ul>
-                {% block gender_select %}
-                {% endblock %}
-            </ul>
-        </div>
-        <div class="right-content">
-            {% block user_info %}
+        </header>
+        <ul>
+            {% block gender_select %}
             {% endblock %}
-        </div>
+        </ul>
+    </div>
+    <div class="right-content">
+        {% block user_info %}
+        {% endblock %}
     </div>
 </div>
 
