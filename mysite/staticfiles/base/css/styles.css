@@ -9,9 +9,6 @@ body {
     font-family: Arial, sans-serif;
     box-sizing: border-box;
 }
-.hero {
-    align-items: center;
-}
 
 .logo {
     width: 170px; /* 로고 크기 조정 */
@@ -23,13 +20,14 @@ body {
 .hero {
     background-color: white;
     color: #343a40;
-    padding: 23px 480px 18px 0px;
+    padding: 0;
     border-bottom: 1px solid #343a40;
+    align-items: center;
 }
 
 .login-wrapper{
-    width: 300px;
-    height: 300px;
+    width: 400px;
+    height: 400px;
     padding: 40px;
     margin: 8% 20% 0 36%;
     box-sizing: border-box;
