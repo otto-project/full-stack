@@ -72,6 +72,7 @@ body {
     padding: 8px 15px;
     text-transform: uppercase;  
     cursor: pointer;
+    font-size: 0.8rem;
     margin-left: auto; 
 }
 .right-content button:hover {
