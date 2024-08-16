@@ -73,7 +73,7 @@ body {
 }
 .right-content button {
     background-color: #343a40;
-    color: rgb(215, 88, 88);
+    color: white;
     border: none;
     margin-top: 20px;
     margin-left: calc(100% - 200px);
