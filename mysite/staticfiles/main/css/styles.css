@@ -120,11 +120,13 @@ body {
 }
 
 .content h1 {
-    font-size: 1rem;
+    font-size: 1.5rem;
+    font-weight: bolder;
 }
 
 .content h2 {
-    font-size: 1rem;
+    font-size: 1.2rem;
+    font-weight: bold;
 }
 
 .content h3 {
