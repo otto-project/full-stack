@@ -1,5 +1,6 @@
 document.getElementById("musinsa").addEventListener("click", function() {
     toggleContent();
+    document.getElementById("home").style.display = "none";
     document.getElementById("musinsa").style.textDecoration = "underline";
     document.getElementById("29cm").style.textDecoration = "none";
     document.getElementById("zigzag").style.textDecoration = "none";
@@ -7,6 +8,7 @@ document.getElementById("musinsa").addEventListener("click", function() {
 
 document.getElementById("29cm").addEventListener("click", function() {
     toggleContent();
+    document.getElementById("home").style.display = "none";
     document.getElementById("musinsa").style.textDecoration = "none";
     document.getElementById("29cm").style.textDecoration = "underline";
     document.getElementById("zigzag").style.textDecoration = "none";
@@ -14,13 +16,13 @@ document.getElementById("29cm").addEventListener("click", function() {
 
 document.getElementById("zigzag").addEventListener("click", function() {
     toggleContent();
+    document.getElementById("home").style.display = "none";
     document.getElementById("musinsa").style.textDecoration = "none";
     document.getElementById("29cm").style.textDecoration = "none";
     document.getElementById("zigzag").style.textDecoration = "underline";
 });
 
 function toggleContent() {
-    document.getElementById("home").style.display = "none";
     var womenContent = document.getElementById("women-content");
     var menContent = document.getElementById("men-content");
 

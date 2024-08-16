@@ -1,11 +1,10 @@
-from django.shortcuts import redirect
 from django.shortcuts import render
 from products.models import ProductTable
 from users.models import UserMLResult
 
 
 def index(request):
-    return redirect('main_platform', platform='musinsa')
+    return render(request, 'main/index.html')
 
 
 def main_platform(request, platform):
