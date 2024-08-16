@@ -1,0 +1,20 @@
+<div>
+    <div class="scroll-container">
+        {% for item in product %}
+        <a class="product-container" href="{{ item.product.description }}">
+            <img src="{{ item.product.image_url }}" alt="{{ item.product.product_name }}">
+            <div class="product-name">{{ item.product.product_name }}</div>
+            <div class="product-size">
+                {% if item.size == '-' %}
+                {{ item.product.size }}
+                {% else %}
+                {{ item.size }}
+                {% endif %}
+            </div>
+            {% if item.score %}
+            <div class="product-score">추천 점수: {{ item.score }}</div>
+            {% endif %}
+        </a>
+        {% endfor %}
+    </div>
+</div>

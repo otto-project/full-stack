@@ -9,7 +9,3 @@ document.getElementById("women-link").addEventListener("click", function() {
     document.getElementById("women-content").style.display = "flex";
     document.getElementById("women-link").style.textDecoration = "underline";
 });
-
-document.getElementsByClassName("brand-logo").addEventListener("click", function() {
-    location.replace("main");
-});

@@ -14,6 +14,8 @@ import os
 import sys
 from pathlib import Path
 
+from decouple import config
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -23,10 +25,10 @@ LOGIN_REDIRECT_URL = "/"
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-yfx+2zuvu8f6#05$bij$*j35hc^2!8h6&kyk@*l7%hdt&#7r3h"
+SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = config('DEBUG', default=False, cast=bool)
 
 ALLOWED_HOSTS = ["*"]
 AUTH_USER_MODEL = "users.CustomUser"
@@ -76,28 +78,8 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "mysite.wsgi.application"
 
-# Database
-# https://docs.djangoproject.com/en/5.0/ref/settings/#databases
-
-# DATABASES = {
-#     "default": {
-#         "ENGINE": "django.db.backends.sqlite3",
-#         "NAME": BASE_DIR / "db.sqlite3",
-#     }
-# }
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': config("DATABASE_NAME"),
-#         'USER': config("DATABASE_USERNAME"),
-#         'PASSWORD': config("DATABASE_PASSWORD"),
-#         'HOST': config("DATABASE_HOST"),
-#         'PORT': config("DATABASE_PORT", cast=int),
-#     }
-# }
-
 DATABASES = {
+<<<<<<< HEAD
     "default": {
         "ENGINE": "django.db.backends.postgresql",
         "NAME": "postgres",
@@ -105,9 +87,23 @@ DATABASES = {
         "PASSWORD": "otto!django",
         "HOST": "otto-django-dev-db.ch4xfyi6stod.ap-northeast-2.rds.amazonaws.com",
         "PORT": "5432",
+=======
+    'default': {
+        'ENGINE': config('DB_ENGINE'),
+        'NAME': config('DB_NAME'),
+        'USER': config('DB_USER'),
+        'PASSWORD': config('DB_PASSWORD'),
+        'HOST': config('DB_HOST'),
+        'PORT': config('DB_PORT'),
+        'OPTIONS': {
+            'options': config('DB_OPTIONS'),
+        },
+>>>>>>> 8d4129160f0b2a6940d94cbb8e8a57bd27c2074b
     }
 }
 TESTING = "test" in sys.argv[1:]  # 테스트 실행 시 TESTING을 True로 설정
+
+ML_API_HOST = config('ML_API_HOST')
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
@@ -154,5 +150,4 @@ else:
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
-
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
