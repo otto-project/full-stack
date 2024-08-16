@@ -68,12 +68,11 @@ body {
     background-color: #343a40;
     color: white;
     border: none;
-    margin: 20px 0px 0px 0px;
+    margin: 20px 0px 0px 1100px;
     padding: 8px 15px;
     text-transform: uppercase;  
     cursor: pointer;
     font-size: 0.8rem;
-    margin-left: auto; 
 }
 .right-content button:hover {
     background-color: #495057;
