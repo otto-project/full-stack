@@ -9,9 +9,11 @@ body {
     font-family: Arial, sans-serif;
     box-sizing: border-box;
 }
+.hero {
+    align-items: center;
+}
 
 .logo {
-    align-items: center;
     width: 170px; /* 로고 크기 조정 */
     height: auto; /* 원본 비율 유지 */
     max-height: 178px;
