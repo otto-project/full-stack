@@ -4,6 +4,17 @@
 
 body {
     overflow-y: scroll;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    box-sizing: border-box;
+}
+
+.logo {
+    width: 170px; /* 로고 크기 조정 */
+    height: auto; /* 원본 비율 유지 */
+    max-height: 178px;
+    padding: 15px 15px 15px 40px;
 }
 
 .hero {
@@ -11,34 +22,6 @@ body {
     color: #343a40;
     padding: 23px 480px 18px 0px;
     border-bottom: 1px solid #343a40;
-}
-
-.hero .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.hero .container .home {
-    text-align: center;  
-    text-decoration: none; 
-    color: inherit;
-}
-
-.hero #english {
-    font-family: "Playfair Display", serif;
-    font-optical-sizing: auto;
-    font-weight: 900;
-    font-style: normal;
-    text-shadow: 3px 3px 2.5px gray;
-    margin: 0;
-}
-
-.hero #korean {
-    margin: 0 20px 0 28px;
-    font-size: 1.28rem;
-    font-weight: normal;
-    text-shadow: 5px 5px 2.5px gray;
 }
 
 .login-wrapper{
