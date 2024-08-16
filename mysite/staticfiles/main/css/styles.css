@@ -162,8 +162,16 @@ body {
 
 .scroll-container {
     display: flex;
-    overflow-x: auto;
+    overflow-x: auto; 
+    scroll-behavior: smooth; 
+    -ms-overflow-style: none; 
+    scrollbar-width: none;
 }
+
+.scroll-container::-webkit-scrollbar {
+    display: none;
+}
+
 .product-container {
     display: flex;
     flex-direction: column;
