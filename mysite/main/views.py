@@ -1,9 +1,12 @@
+from django.shortcuts import redirect
 from django.shortcuts import render
 from products.models import ProductTable
 from users.models import UserMLResult
 
 
 def index(request):
+    if request.user.is_authenticated:
+        return redirect('main_platform', platform='musinsa')
     return render(request, 'main/index.html')
 
 

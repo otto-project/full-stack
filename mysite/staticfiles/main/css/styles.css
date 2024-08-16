@@ -160,7 +160,8 @@ body {
 .scroll-container {
     display: flex;
     overflow-x: auto; 
-    scroll-behavior: smooth; 
+    scroll-behavior: smooth;
+    margin: -22px 0px 0px -10px;
     -ms-overflow-style: none; 
     scrollbar-width: none;
 }
@@ -175,7 +176,7 @@ body {
     justify-content: center;
     align-items: center;
     position: relative;
-    margin: 10px;
+    margin: -10px 10px 10px 10px;
     text-align: center;
     width: 150px;
     text-decoration: none;
@@ -303,4 +304,12 @@ li {
 
 .slide_pagination > li.active {
     color: hwb(295 24% 7%);
+}
+
+.top-women-p,
+.bottom-women-p,
+.top-men-p,
+.bottom-men-p {
+  font-family: "Do Hyeon", sans-serif;
+  font-size: 2rem;
 }

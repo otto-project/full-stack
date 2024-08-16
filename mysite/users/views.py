@@ -1,6 +1,5 @@
 import requests
 from django.conf import settings
-from django.contrib import messages
 from django.contrib.auth import login
 from django.contrib.auth import views as auth_views
 from django.shortcuts import redirect
@@ -14,7 +13,7 @@ from .models import UserMLResult
 
 def request_get(api_url, params):
     try:
-        res = requests.get(api_url, params=params, timeout=10)
+        res = requests.get(api_url, params=params, timeout=3)
         return res
     except Timeout as e:
         return None
@@ -34,10 +33,11 @@ def load_ml_results(user):
     host = settings.ML_API_HOST
     api_url = f"http://{host}/predict"
     connection_url = f"http://{host}/connection"
-    if not connection_test(connection_url):
-        return
 
     if not UserMLResult.needs_api_call(user):
+        return
+
+    if not connection_test(connection_url):
         return
 
     gender = '남성' if user.gender == 'male' else '여성'
@@ -79,7 +79,6 @@ class CustomLoginView(auth_views.LoginView):
         return super().form_valid(form)
 
     def form_invalid(self, form):
-        messages.error(self.request, "사용자ID 또는 비밀번호가 잘못되었습니다.")
         return self.get(self.request)
 
 
@@ -89,7 +88,6 @@ def signup(request):
         if form.is_valid():
             user = form.save()
             login(request, user)
-            messages.success(request, "회원가입 성공!")
             return redirect('main_platform', platform='musinsa')
     else:
         form = SignUpForm()
