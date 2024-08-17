@@ -37,7 +37,7 @@ class ProductTable(models.Model):
             platform=platform,
             category=category,
             product_name__in=Subquery(gender_product_names)
-        )
+        ).order_by('rank')
 
 
 class ProductGender(models.Model):
