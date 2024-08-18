@@ -88,6 +88,7 @@ def signup(request):
         if form.is_valid():
             user = form.save()
             login(request, user)
+            load_ml_results(user)
             return redirect('main_platform', platform='musinsa')
     else:
         form = SignUpForm()
