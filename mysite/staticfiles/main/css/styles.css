@@ -163,15 +163,7 @@ body {
 
 .scroll-container {
     display: flex;
-    overflow-x: auto; 
-    scroll-behavior: smooth;
-    margin: -22px 0px 0px -10px;
-    -ms-overflow-style: none; 
-    scrollbar-width: none;
-}
-
-.scroll-container::-webkit-scrollbar {
-    display: none;
+    overflow-x: scroll;
 }
 
 .product-container {
@@ -198,6 +190,7 @@ body {
     font-size: 14px;
     color: #333;
     white-space: nowrap;
+    overflow: hidden;
     text-overflow: ellipsis;
     display: block;
     width: 100%;
